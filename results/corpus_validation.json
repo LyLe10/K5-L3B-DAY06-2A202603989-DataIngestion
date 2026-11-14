@@ -1,0 +1,312 @@
+{
+  "physical_pages": 3074,
+  "included_pages": 40,
+  "valid_unique_pages": 40,
+  "excluded_pages": 3034,
+  "duplicate_pages": 0,
+  "errors": [],
+  "warnings": [],
+  "filter_values": [
+    "Data Definition",
+    "Data Manipulation"
+  ],
+  "selected_pages": [
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 97,
+      "printed_page_label": "59",
+      "section": "Data Definition",
+      "normalized_char_count": 3443
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 98,
+      "printed_page_label": "60",
+      "section": "Data Definition",
+      "normalized_char_count": 2710
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 99,
+      "printed_page_label": "61",
+      "section": "Data Definition",
+      "normalized_char_count": 2487
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 100,
+      "printed_page_label": "62",
+      "section": "Data Definition",
+      "normalized_char_count": 3386
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 101,
+      "printed_page_label": "63",
+      "section": "Data Definition",
+      "normalized_char_count": 2504
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 102,
+      "printed_page_label": "64",
+      "section": "Data Definition",
+      "normalized_char_count": 2252
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 103,
+      "printed_page_label": "65",
+      "section": "Data Definition",
+      "normalized_char_count": 2408
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 104,
+      "printed_page_label": "66",
+      "section": "Data Definition",
+      "normalized_char_count": 1808
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 105,
+      "printed_page_label": "67",
+      "section": "Data Definition",
+      "normalized_char_count": 1862
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 106,
+      "printed_page_label": "68",
+      "section": "Data Definition",
+      "normalized_char_count": 1974
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 107,
+      "printed_page_label": "69",
+      "section": "Data Definition",
+      "normalized_char_count": 1978
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 108,
+      "printed_page_label": "70",
+      "section": "Data Definition",
+      "normalized_char_count": 2997
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 109,
+      "printed_page_label": "71",
+      "section": "Data Definition",
+      "normalized_char_count": 2976
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 110,
+      "printed_page_label": "72",
+      "section": "Data Definition",
+      "normalized_char_count": 2848
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 111,
+      "printed_page_label": "73",
+      "section": "Data Definition",
+      "normalized_char_count": 2299
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 112,
+      "printed_page_label": "74",
+      "section": "Data Definition",
+      "normalized_char_count": 2041
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 113,
+      "printed_page_label": "75",
+      "section": "Data Definition",
+      "normalized_char_count": 2782
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 114,
+      "printed_page_label": "76",
+      "section": "Data Definition",
+      "normalized_char_count": 2933
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 115,
+      "printed_page_label": "77",
+      "section": "Data Definition",
+      "normalized_char_count": 2920
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 116,
+      "printed_page_label": "78",
+      "section": "Data Definition",
+      "normalized_char_count": 2296
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 117,
+      "printed_page_label": "79",
+      "section": "Data Definition",
+      "normalized_char_count": 2211
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 118,
+      "printed_page_label": "80",
+      "section": "Data Definition",
+      "normalized_char_count": 4119
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 119,
+      "printed_page_label": "81",
+      "section": "Data Definition",
+      "normalized_char_count": 2185
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 120,
+      "printed_page_label": "82",
+      "section": "Data Definition",
+      "normalized_char_count": 1918
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 121,
+      "printed_page_label": "83",
+      "section": "Data Definition",
+      "normalized_char_count": 2185
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 122,
+      "printed_page_label": "84",
+      "section": "Data Definition",
+      "normalized_char_count": 2320
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 123,
+      "printed_page_label": "85",
+      "section": "Data Definition",
+      "normalized_char_count": 2320
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 124,
+      "printed_page_label": "86",
+      "section": "Data Definition",
+      "normalized_char_count": 2703
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 125,
+      "printed_page_label": "87",
+      "section": "Data Definition",
+      "normalized_char_count": 2047
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 126,
+      "printed_page_label": "88",
+      "section": "Data Definition",
+      "normalized_char_count": 2644
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 127,
+      "printed_page_label": "89",
+      "section": "Data Definition",
+      "normalized_char_count": 3234
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 128,
+      "printed_page_label": "90",
+      "section": "Data Definition",
+      "normalized_char_count": 4024
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 129,
+      "printed_page_label": "91",
+      "section": "Data Definition",
+      "normalized_char_count": 1895
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 130,
+      "printed_page_label": "92",
+      "section": "Data Definition",
+      "normalized_char_count": 1962
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 131,
+      "printed_page_label": "93",
+      "section": "Data Definition",
+      "normalized_char_count": 4651
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 132,
+      "printed_page_label": "94",
+      "section": "Data Definition",
+      "normalized_char_count": 3573
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 148,
+      "printed_page_label": "110",
+      "section": "Data Manipulation",
+      "normalized_char_count": 2281
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 149,
+      "printed_page_label": "111",
+      "section": "Data Manipulation",
+      "normalized_char_count": 2472
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 150,
+      "printed_page_label": "112",
+      "section": "Data Manipulation",
+      "normalized_char_count": 2988
+    },
+    {
+      "source_id": "postgresql-16.16-a4",
+      "page": 151,
+      "printed_page_label": "113",
+      "section": "Data Manipulation",
+      "normalized_char_count": 735
+    }
+  ],
+  "excluded_by_reason": {
+    "cover": 1,
+    "legal_notice": 1,
+    "front_matter": 36,
+    "outside_selected_scope": 2996
+  },
+  "sources": [
+    {
+      "source_id": "postgresql-16.16-a4",
+      "url": "https://www.postgresql.org/files/documentation/pdf/16/postgresql-16-A4.pdf",
+      "version": "16.16",
+      "sha256": "4cf9a4f56001191572e07959396120de0d61ca65d29072df66f9e656c24ae568"
+    }
+  ],
+  "passed": true,
+  "checked_at": "2026-11-14T02:59:53.801254+00:00",
+  "manifest_sha256": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d"
+}

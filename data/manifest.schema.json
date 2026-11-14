@@ -1,0 +1,244 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "counting_policy": {
+      "enum": [
+        "pdf-content-pages-v1"
+      ]
+    },
+    "normalization_policy": {
+      "enum": [
+        "nfc-whitespace-paragraphs-v1"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_path_or_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "license_or_permission": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "evidence_path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "review_status": {
+                "enum": [
+                  "pending",
+                  "verified",
+                  "rejected"
+                ]
+              },
+              "processing_allowed": {
+                "type": "boolean"
+              },
+              "redistribution_allowed": {
+                "type": "boolean"
+              },
+              "reviewed_by": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "name",
+              "evidence_url",
+              "evidence_path",
+              "review_status",
+              "processing_allowed",
+              "redistribution_allowed",
+              "reviewed_by",
+              "reviewed_at"
+            ]
+          },
+          "accessed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "local_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "enum": [
+              "pdf"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "physical_page_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "retrieval_instructions": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "page_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "physical_page": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "printed_page_label": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "normalized_char_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "text_path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "text_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "included": {
+                  "type": "boolean"
+                },
+                "exclusion_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "extraction_status": {
+                  "enum": [
+                    "ok",
+                    "empty",
+                    "error"
+                  ]
+                },
+                "review_status": {
+                  "enum": [
+                    "pending",
+                    "approved",
+                    "rejected"
+                  ]
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "section": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "section_evidence": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "section",
+                    "section_evidence"
+                  ]
+                }
+              },
+              "required": [
+                "page_id",
+                "physical_page",
+                "printed_page_label",
+                "normalized_char_count",
+                "text_path",
+                "text_sha256",
+                "included",
+                "exclusion_reason",
+                "extraction_status",
+                "review_status",
+                "notes",
+                "metadata"
+              ]
+            }
+          }
+        },
+        "required": [
+          "source_id",
+          "title",
+          "source_path_or_url",
+          "license_or_permission",
+          "accessed_at",
+          "local_path",
+          "format",
+          "version",
+          "sha256",
+          "physical_page_count",
+          "retrieval_instructions",
+          "pages"
+        ]
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "counting_policy",
+    "normalization_policy",
+    "sources"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

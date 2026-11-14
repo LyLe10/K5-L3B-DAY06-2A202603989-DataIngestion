@@ -45,3 +45,9 @@ Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **1
 | Cách nộp bài | [SUBMISSION.md](SUBMISSION.md) |
 
 [data/format-example.json](data/format-example.json) chỉ minh họa định dạng, không phải corpus đủ điều kiện. Phần xử lý và benchmark do bạn tự hiện thực; không bắt buộc xây chatbot.
+
+## Corpus & Manifest (giai đoạn 2)
+
+Xem [hướng dẫn corpus](data/README.md), [manifest](data/manifest.json) và [JSON Schema](data/manifest.schema.json).
+Chạy từ root: `python starter/scripts/check_corpus.py --manifest data/manifest.json`.
+Corpus hiện dùng PostgreSQL 16.16 PDF A4: chọn 40 trang vật lý (97–132, 148–151). Xem `results/corpus_validation.md` để đối chiếu báo cáo kiểm tra; PDF và text chỉ lưu local, không đưa vào Git.
