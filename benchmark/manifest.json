@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "benchmark_id": "postgresql16-en-v1",
+  "language": "en",
+  "freeze_status": "FROZEN",
+  "human_approval_recorded": true,
+  "retrieval_executed": false,
+  "quality_metrics_computed": false,
+  "corpus_manifest_sha256": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+  "schema_sha256": "17b00eda737d32d039ace337c3ab8b152f5bbe5aa342ea2117e716f3afc234fb",
+  "notice_sha256": "50333d335539f7d01b84f5d23701d38b6a57295515775e988ae0be74635511d1",
+  "files": {
+    "dev.jsonl": {
+      "sha256": "92489488ef5ffa9c2ba4cbc1f8bb8f40fe04457cd89f5d9ba857fe76e3546ac0",
+      "count": 15
+    },
+    "test.jsonl": {
+      "sha256": "53966ab40ac337aaf2ef7ae1974bf1f09390af53245a2914dbfc4dc0a1fbab47",
+      "count": 5
+    }
+  },
+  "freeze_manifest_sha256": "f1aafb9c62ccf63a8f98d47283a8286abe0c46087f8546cec82121d9b9586f5d"
+}

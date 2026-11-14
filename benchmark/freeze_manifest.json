@@ -1,0 +1,318 @@
+{
+  "freeze_schema_version": 1,
+  "question_schema_version": 1,
+  "benchmark_id": "postgresql16-en-v1",
+  "language": "en",
+  "freeze_status": "FROZEN",
+  "baseline_commit": "19ebfa1010002f7f725af7b8b8d881ed77259fd5",
+  "files": {
+    "dev.jsonl": {
+      "sha256": "92489488ef5ffa9c2ba4cbc1f8bb8f40fe04457cd89f5d9ba857fe76e3546ac0",
+      "count": 15
+    },
+    "test.jsonl": {
+      "sha256": "53966ab40ac337aaf2ef7ae1974bf1f09390af53245a2914dbfc4dc0a1fbab47",
+      "count": 5
+    }
+  },
+  "schema_sha256": "17b00eda737d32d039ace337c3ab8b152f5bbe5aa342ea2117e716f3afc234fb",
+  "corpus_manifest_sha256": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+  "notice_sha256": "50333d335539f7d01b84f5d23701d38b6a57295515775e988ae0be74635511d1",
+  "source_checksums": {
+    "postgresql-16.16-a4": "4cf9a4f56001191572e07959396120de0d61ca65d29072df66f9e656c24ae568"
+  },
+  "selected_pages": [
+    [
+      "postgresql-16.16-a4",
+      97,
+      "48baf2cda645dda84001c1fb7f8a5b64648b58e217f82b00884d8738c7f108bc"
+    ],
+    [
+      "postgresql-16.16-a4",
+      98,
+      "c1a0650a7047b2b2f435712933c095cf03d1bba8cb9b08e4d827d7b34a92bb56"
+    ],
+    [
+      "postgresql-16.16-a4",
+      99,
+      "30d42d42226a4c6daff590f4ad05338494ee37aa494b807baeb1ee9356463a92"
+    ],
+    [
+      "postgresql-16.16-a4",
+      100,
+      "91a27ac33e8c0a9dc8578bb383b2daaaac2dc50309128cf6cbdfab80506d2114"
+    ],
+    [
+      "postgresql-16.16-a4",
+      101,
+      "a18c96b190ac1d792f5234d6ef405a9d12ae768bfa3d959b93d1f1f2147c2a9a"
+    ],
+    [
+      "postgresql-16.16-a4",
+      102,
+      "c95a16bf6207310d1e1183fcb269290a1fe5080482c3216fe41d49a3d488e56d"
+    ],
+    [
+      "postgresql-16.16-a4",
+      103,
+      "bd7b7cb65123411eef27902729bcbd33f1e9d3e1968f13cde033b9a03fd4310c"
+    ],
+    [
+      "postgresql-16.16-a4",
+      104,
+      "253c9e7449015fdad745b5f0f3a984fde48a2b88a04006cfef11f0dcdbcf1570"
+    ],
+    [
+      "postgresql-16.16-a4",
+      105,
+      "a07b61635fb5a620348188caa63ad0d2499fe26d5d21b077e82e546530896a0c"
+    ],
+    [
+      "postgresql-16.16-a4",
+      106,
+      "200f3caaadb644722f334f4ef087ecf9a3c521b35900575da7ea7a3d66535c64"
+    ],
+    [
+      "postgresql-16.16-a4",
+      107,
+      "c90a0d48bb02e50761eb3a2cc9e82bf945cfd553f6504f42c13bc876bf7b9b15"
+    ],
+    [
+      "postgresql-16.16-a4",
+      108,
+      "29f992686880e4e04d23433acca7e3773ac30dfb8505defecf3b22ece614ac45"
+    ],
+    [
+      "postgresql-16.16-a4",
+      109,
+      "8702b1cd51bcda5b59e12713b1f6199fcfa8f90734dd86d16fd37840432b989d"
+    ],
+    [
+      "postgresql-16.16-a4",
+      110,
+      "127bfbba5e36f9360848790feb998e05ce2e94f18e26b6eca8920d174b4db3a0"
+    ],
+    [
+      "postgresql-16.16-a4",
+      111,
+      "ac1bf73c025fe61e1e244798baa2194a0bfe89505e4780f4a6ee0b1156644039"
+    ],
+    [
+      "postgresql-16.16-a4",
+      112,
+      "983b441e8a156e34374dff7dc64b6ebe7911d00f7175ac9a8c1c5572ec99ec58"
+    ],
+    [
+      "postgresql-16.16-a4",
+      113,
+      "0986c8bb7ee04a2a64735437e5a6cec24afc2089c06f539aa81c665b9b05d861"
+    ],
+    [
+      "postgresql-16.16-a4",
+      114,
+      "1cc53782fd40f9e84be75dd4968e7cde62d22e7fc05f57ef056d2b5e5a35b3a1"
+    ],
+    [
+      "postgresql-16.16-a4",
+      115,
+      "9334802b9b487623ae6db7fac63844c9ba9b7d1b4672410a7507c70dbf6dc05e"
+    ],
+    [
+      "postgresql-16.16-a4",
+      116,
+      "4cddb3f6e6cc7a8a7e2d526b91799e54761e1c1d48195621d153c19b6d20f8d7"
+    ],
+    [
+      "postgresql-16.16-a4",
+      117,
+      "dddcbb5e493f2cd4ce41d42a8ad5c83f1e58d90119d5a42ed2bdba69e7ce3d84"
+    ],
+    [
+      "postgresql-16.16-a4",
+      118,
+      "78e93414fec0a6d3dc9fcc865af878d811479877d40f38656828f8ccbe512c33"
+    ],
+    [
+      "postgresql-16.16-a4",
+      119,
+      "d7e18f667e7d5ed13a108c3650bd1e3729a08d51818341d93701864178631071"
+    ],
+    [
+      "postgresql-16.16-a4",
+      120,
+      "0d1cd9a82f620ab6aa755101a9298e77f70910bfcada4faa84cd89a90fad0bb6"
+    ],
+    [
+      "postgresql-16.16-a4",
+      121,
+      "2b47cc455c5cdaa5a9467d45437a4bbdfd4a595aa14cb5fc336bafcae2477840"
+    ],
+    [
+      "postgresql-16.16-a4",
+      122,
+      "dab2e45a381c0643c17c107994b2a7c529d44f1e54099d3e3fbf2f8e074adce7"
+    ],
+    [
+      "postgresql-16.16-a4",
+      123,
+      "286761a395c656178a624a98ae452a52ad8df408e5c42e0e0738c357f7e531de"
+    ],
+    [
+      "postgresql-16.16-a4",
+      124,
+      "382e01904c4d0bc3b9fa95a2be52599be8a29e34dcb1f7e92192b80c00e7a15c"
+    ],
+    [
+      "postgresql-16.16-a4",
+      125,
+      "76579d5cde97547e20d98f39feba485fc3cff2ad877447f1e0606288472b4ceb"
+    ],
+    [
+      "postgresql-16.16-a4",
+      126,
+      "e797ab8e8af7a8a41854611329e52892bdafbc56af6acbcd10e302931532cd1c"
+    ],
+    [
+      "postgresql-16.16-a4",
+      127,
+      "3b865576c261dcac29d0c8cd6cb3e12dd71f3e252b0d11ef82ae68af103a977b"
+    ],
+    [
+      "postgresql-16.16-a4",
+      128,
+      "b22b6caf9fa5c480c5e4ccc5bbc0ba32060fcb89aa3e04826f66269b0a4ec13d"
+    ],
+    [
+      "postgresql-16.16-a4",
+      129,
+      "0f433dda68f933dd24c681669b20679e228748ba708caa8aadd152a649ef7f92"
+    ],
+    [
+      "postgresql-16.16-a4",
+      130,
+      "a8ae3e441c64595452153749b8e98fbb09d034a8a16051d48b08c8483dbddcd6"
+    ],
+    [
+      "postgresql-16.16-a4",
+      131,
+      "2c1725943d41ac3af0df35385a060d318f3b2984ae40b2f38744fe5ae284f0a9"
+    ],
+    [
+      "postgresql-16.16-a4",
+      132,
+      "0b3344c446cdc64b25374caee96047fcde2a215499a5c5ec04a64d3290c980ed"
+    ],
+    [
+      "postgresql-16.16-a4",
+      148,
+      "e6f0ec57a5e3b579448abfa4489df206f0959107bbe8efbf45e6263772404eac"
+    ],
+    [
+      "postgresql-16.16-a4",
+      149,
+      "dd1ac913d692a8237cebf94398ed2e872e8a5b77a84d852b45d318a13fe5d95c"
+    ],
+    [
+      "postgresql-16.16-a4",
+      150,
+      "bdb59d912822c25538511668b3fe149e48fc332a837e25e08a1064e43226d3d0"
+    ],
+    [
+      "postgresql-16.16-a4",
+      151,
+      "c12a1f8444d9f9656ea491ba14517160140a195ab47f91135dab6962a88d1477"
+    ]
+  ],
+  "counts": {
+    "total": 20,
+    "splits": {
+      "dev": 15,
+      "test": 5
+    },
+    "filters": {
+      "dev": 2,
+      "test": 1
+    },
+    "topics": {
+      "table_basics": 1,
+      "defaults": 1,
+      "generated_columns": 1,
+      "check_constraints": 1,
+      "not_null": 1,
+      "unique_constraints": 1,
+      "primary_keys": 1,
+      "foreign_keys": 1,
+      "referential_actions": 1,
+      "add_column": 1,
+      "drop_column": 1,
+      "schema_search_path": 1,
+      "row_security": 1,
+      "insert": 1,
+      "update": 1,
+      "system_columns": 1,
+      "inheritance": 1,
+      "privileges": 1,
+      "bulk_insertion": 1,
+      "returning_triggers": 1
+    },
+    "categories": {
+      "direct": 5,
+      "paraphrased": 4,
+      "conditional": 8,
+      "section_specific": 3
+    }
+  },
+  "approved_question_ids": [
+    "pg16-d01",
+    "pg16-d02",
+    "pg16-d03",
+    "pg16-d04",
+    "pg16-d05",
+    "pg16-d06",
+    "pg16-d07",
+    "pg16-d08",
+    "pg16-d09",
+    "pg16-d10",
+    "pg16-d11",
+    "pg16-d12",
+    "pg16-d13",
+    "pg16-d14",
+    "pg16-d15",
+    "pg16-t01",
+    "pg16-t02",
+    "pg16-t03",
+    "pg16-t04",
+    "pg16-t05"
+  ],
+  "review": {
+    "reviewer": "user-assisted review",
+    "ai_assisted": true,
+    "independent_verification_claimed": false,
+    "approval_basis": "The user reviewed the 19 unchanged questions and explicitly approved replacement option A for pg16-t04 in the conversation; no retrieval results were used.",
+    "unchanged_question_ids": [
+      "pg16-d01",
+      "pg16-d02",
+      "pg16-d03",
+      "pg16-d04",
+      "pg16-d05",
+      "pg16-d06",
+      "pg16-d07",
+      "pg16-d08",
+      "pg16-d09",
+      "pg16-d10",
+      "pg16-d11",
+      "pg16-d12",
+      "pg16-d13",
+      "pg16-d14",
+      "pg16-d15",
+      "pg16-t01",
+      "pg16-t02",
+      "pg16-t03",
+      "pg16-t05"
+    ],
+    "replacement_approved_question_id": "pg16-t04",
+    "limitations": "No independent reviewer identity, signature or approval timestamp was supplied or invented. Per-record draft review fields are retained as authoring provenance; this manifest records the effective user-assisted approval."
+  },
+  "holdout_rule": "NO_TEST_ADJUSTMENT_FROM_RETRIEVAL_RESULTS",
+  "change_control": "After freeze, any benchmark change requires explicit approval, a new benchmark identity/checksums and disclosure of test exposure; no automatic gold/test edits."
+}

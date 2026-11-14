@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stage 5.2 English PostgreSQL draft question",
+  "type": "object",
+  "properties": {
+    "gold_source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gold_page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evidence_quote": {
+      "type": "string",
+      "minLength": 20
+    },
+    "evidence_start_char": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "evidence_end_char": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "page_text_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^pg16-[dt][0-9]{2}$"
+    },
+    "split": {
+      "enum": [
+        "dev",
+        "test"
+      ]
+    },
+    "language": {
+      "const": "en"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 10
+    },
+    "expected_answer": {
+      "type": "string",
+      "minLength": 10
+    },
+    "category": {
+      "enum": [
+        "direct",
+        "paraphrased",
+        "conditional",
+        "section_specific"
+      ]
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gold_alternatives": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "review_status": {
+      "const": "NEEDS_HUMAN_REVIEW"
+    },
+    "reviewer": {
+      "type": "null"
+    },
+    "review_notes": {
+      "type": "string",
+      "minLength": 1
+    },
+    "filter": {
+      "type": "object",
+      "properties": {
+        "section": {
+          "enum": [
+            "Data Definition",
+            "Data Manipulation"
+          ]
+        }
+      },
+      "required": [
+        "section"
+      ],
+      "additionalProperties": false
+    },
+    "filter_context": {
+      "type": "string",
+      "minLength": 1
+    },
+    "filter_rationale": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "gold_source_id",
+    "gold_page",
+    "evidence_quote",
+    "evidence_start_char",
+    "evidence_end_char",
+    "source_sha256",
+    "page_text_sha256",
+    "id",
+    "split",
+    "language",
+    "question",
+    "expected_answer",
+    "category",
+    "topic",
+    "gold_alternatives",
+    "review_status",
+    "reviewer",
+    "review_notes"
+  ],
+  "additionalProperties": false,
+  "dependentRequired": {
+    "filter": [
+      "filter_context",
+      "filter_rationale"
+    ]
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "gold_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gold_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "evidence_quote": {
+          "type": "string",
+          "minLength": 20
+        },
+        "evidence_start_char": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evidence_end_char": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "page_text_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "gold_source_id",
+        "gold_page",
+        "evidence_quote",
+        "evidence_start_char",
+        "evidence_end_char",
+        "source_sha256",
+        "page_text_sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

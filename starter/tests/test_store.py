@@ -289,9 +289,8 @@ def test_schema_verification_rejects_drift_without_writing(store,monkeypatch,pro
     assert all(sql.startswith('SELECT') for sql,p in conn.calls)
 
 
-def test_empty_upsert_rejected_and_retrieval_still_unimplemented(store):
+def test_empty_upsert_rejected(store):
     with pytest.raises(StoreError): store.upsert('A',[],[])
-    with pytest.raises(NotImplementedError): store.search('B',[1.0]+[0.0]*383)
 
 
 # This stateful double tests Python orchestration and bound SQL values only.

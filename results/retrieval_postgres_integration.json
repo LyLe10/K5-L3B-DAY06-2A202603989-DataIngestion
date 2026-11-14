@@ -1,0 +1,247 @@
+{
+  "started_at": "2026-11-14T10:39:04.017673+00:00",
+  "passed": true,
+  "production_connections": 0,
+  "synthetic_only": true,
+  "errors": [],
+  "isolation": {
+    "container": "day6-store-test-retrieval-a1d26a267c",
+    "container_id": "6a8877b8b0af525559c29fbec8885133ddad9a289dc7020b678c54dafb8c08f6",
+    "cluster": "7707974844387852327",
+    "endpoint": "127.0.0.1:55434",
+    "tmpfs_only": true,
+    "production_cluster_rejected": true,
+    "image_id": "sha256:484e838076e04939d27d3e176e91c86eea96236126023be8d3059761122e579f"
+  },
+  "database_identity": [
+    "day6_lab",
+    "tester",
+    "160016",
+    "7707974844387852327"
+  ],
+  "pgvector": "0.8.7",
+  "migration_checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+  "pytest_exit_code": 0,
+  "tests": [
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_cosine_tie_score_and_mapping[A]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.35925021000002744,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_cosine_tie_score_and_mapping[B]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.1983807100004924,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_cosine_tie_score_and_mapping[C]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.4149565200023062,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_filter_before_limit",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.7665600799991807,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_b_equals_c_and_preflight_once",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.3538418520001869,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_namespace_isolation",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 1.034950271998241,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_missing_ledger",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.4798647500028892,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_invalid_committed_states_rejected[mutation0-P0001]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.23170137699707993,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_invalid_committed_states_rejected[DELETE FROM day6_ingestion.chunks WHERE dataset_id=%s AND strategy='A'-P0001]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.45652599099776126,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_invalid_committed_states_rejected[UPDATE day6_ingestion.chunks SET snapshot_id=repeat('f',64) WHERE dataset_id=%s AND strategy='A'-23503]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.26367706500241184,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_approved_identity_mismatch",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.27587271000084,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_readonly_enforced_and_cleanup",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.220953471998655,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_query_error_rollback_and_no_retry",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.14098483399720863,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_statement_timeout_cleanup",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.39717872999972315,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_shared_locks_block_sync_and_cleanup",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.7256419779987482,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_repeatable_read_other_namespace_commits",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.8958311530004721,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_lock_timeout_cleanup",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.6009788189985557,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_retrieval_cases.py::test_catalog_unchanged",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.09304216899909079,
+      "error": null
+    }
+  ],
+  "summary": {
+    "PASS": 18,
+    "FAIL": 0,
+    "BLOCKED": 0
+  },
+  "evidence": [
+    {
+      "case": "ranking_A",
+      "rows": 30,
+      "real_cosine": true,
+      "tie_breaking": true
+    },
+    {
+      "case": "ranking_B",
+      "rows": 30,
+      "real_cosine": true,
+      "tie_breaking": true
+    },
+    {
+      "case": "ranking_C",
+      "rows": 30,
+      "real_cosine": true,
+      "tie_breaking": true
+    },
+    {
+      "case": "filter_before_limit",
+      "filtered_rows": 3,
+      "parameter_binding": true
+    },
+    {
+      "case": "session_once",
+      "preflight_calls": 1,
+      "isolation": "repeatable read",
+      "read_only": true
+    },
+    {
+      "case": "namespace_isolation",
+      "other_dataset": true
+    },
+    {
+      "case": "mutation_rejected",
+      "sqlstate": "P0001",
+      "rollback_verified": true
+    },
+    {
+      "case": "mutation_rejected",
+      "sqlstate": "P0001",
+      "rollback_verified": true
+    },
+    {
+      "case": "mutation_rejected",
+      "sqlstate": "23503",
+      "rollback_verified": true
+    },
+    {
+      "case": "readonly_enforcement",
+      "sqlstate": "25006",
+      "connection_closed": true
+    },
+    {
+      "case": "query_error_cleanup",
+      "sqlstate": "22012",
+      "connections": 1
+    },
+    {
+      "case": "statement_timeout",
+      "sqlstate": "57014",
+      "connection_closed": true
+    },
+    {
+      "case": "concurrent_sync",
+      "writer_wait_observed": true,
+      "session_stable": true,
+      "writer_completed_after_exit": true
+    },
+    {
+      "case": "mvcc",
+      "other_namespace_writer_committed": true,
+      "repeatable_read_stable": true
+    },
+    {
+      "case": "lock_timeout",
+      "sqlstate": "55P03",
+      "subsequent_session_succeeds": true
+    },
+    {
+      "case": "catalog",
+      "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "fingerprint": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+    }
+  ],
+  "container_stopped": true,
+  "seconds": 43.59999720199994,
+  "finished_at": "2026-11-14T10:39:42.440412+00:00"
+}

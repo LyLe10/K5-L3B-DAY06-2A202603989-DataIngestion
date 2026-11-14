@@ -1,0 +1,91 @@
+{
+  "structural_source_valid": true,
+  "errors": [],
+  "warnings": [
+    "User-assisted approval is recorded; automatic checks do not independently certify semantics, exhaustive alternatives or holdout independence"
+  ],
+  "counts": {
+    "total": 20,
+    "splits": {
+      "dev": 15,
+      "test": 5
+    },
+    "filters": {
+      "dev": 2,
+      "test": 1
+    },
+    "topics": {
+      "table_basics": 1,
+      "defaults": 1,
+      "generated_columns": 1,
+      "check_constraints": 1,
+      "not_null": 1,
+      "unique_constraints": 1,
+      "primary_keys": 1,
+      "foreign_keys": 1,
+      "referential_actions": 1,
+      "add_column": 1,
+      "drop_column": 1,
+      "schema_search_path": 1,
+      "row_security": 1,
+      "insert": 1,
+      "update": 1,
+      "system_columns": 1,
+      "inheritance": 1,
+      "privileges": 1,
+      "bulk_insertion": 1,
+      "returning_triggers": 1
+    },
+    "categories": {
+      "direct": 5,
+      "paraphrased": 4,
+      "conditional": 8,
+      "section_specific": 3
+    }
+  },
+  "needs_human_review": [],
+  "human_approved": true,
+  "frozen": true,
+  "retrieval_executed": false,
+  "semantic_gold_correctness": "USER_ASSISTED_REVIEW_RECORDED_NOT_INDEPENDENTLY_CERTIFIED",
+  "draft_record_review_status_retained": true,
+  "freeze_manifest_sha256": "f1aafb9c62ccf63a8f98d47283a8286abe0c46087f8546cec82121d9b9586f5d",
+  "review": {
+    "reviewer": "user-assisted review",
+    "ai_assisted": true,
+    "independent_verification_claimed": false,
+    "approval_basis": "The user reviewed the 19 unchanged questions and explicitly approved replacement option A for pg16-t04 in the conversation; no retrieval results were used.",
+    "unchanged_question_ids": [
+      "pg16-d01",
+      "pg16-d02",
+      "pg16-d03",
+      "pg16-d04",
+      "pg16-d05",
+      "pg16-d06",
+      "pg16-d07",
+      "pg16-d08",
+      "pg16-d09",
+      "pg16-d10",
+      "pg16-d11",
+      "pg16-d12",
+      "pg16-d13",
+      "pg16-d14",
+      "pg16-d15",
+      "pg16-t01",
+      "pg16-t02",
+      "pg16-t03",
+      "pg16-t05"
+    ],
+    "replacement_approved_question_id": "pg16-t04",
+    "limitations": "No independent reviewer identity, signature or approval timestamp was supplied or invented. Per-record draft review fields are retained as authoring provenance; this manifest records the effective user-assisted approval."
+  },
+  "benchmark_manifest_sha256": "e333e2f0e0a7bb47569079ab2f9dd461aa15773c505ab5e7dcf0f26a8ff6bde3",
+  "status": "STAGE5_2_FROZEN_READY_FOR_REVIEW",
+  "evidence_spans_checked": 21,
+  "unit_tests": {
+    "passed": 75,
+    "failed": 0,
+    "seconds": 5.32,
+    "fixtures": "synthetic only"
+  }
+}

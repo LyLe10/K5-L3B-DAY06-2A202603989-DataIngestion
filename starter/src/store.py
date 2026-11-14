@@ -1,4 +1,4 @@
-"""Validated namespace-scoped full-snapshot sync; retrieval is not implemented."""
+"""Validated namespace-scoped snapshot sync and read-only cosine retrieval."""
 from dataclasses import asdict, dataclass
 import hashlib
 import json
@@ -407,10 +407,79 @@ class PgVectorStore:
             with owned.transaction():
                 return check(owned)
 
+    def retrieval_session(self, *, baseline=None, lock_timeout_ms=5000,
+                          statement_timeout_ms=30000, idle_timeout_ms=60000, deadline_seconds=None):
+        """Prepare vectors before entry; no connection is retained on this store."""
+        from .retrieval import retrieval_session
+        return retrieval_session(self, baseline=baseline, lock_timeout_ms=lock_timeout_ms,
+                                 statement_timeout_ms=statement_timeout_ms, idle_timeout_ms=idle_timeout_ms,
+                                 deadline_seconds=deadline_seconds)
+
     def search(self, strategy: str, query_vector: list[float], top_k: int = 3,
                filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
-        """TODO: filter permitted metadata in SQL, rank by cosine distance, return top-k.
+        """Standalone read-only search. Use retrieval_session for A/B/C comparisons."""
+        if not isinstance(strategy, str) or strategy not in ('A', 'B', 'C'):
+            raise StoreError('Expected retrieval strategy A, B or C')
+        if type(top_k) is not int or top_k <= 0:
+            raise StoreError('top_k must be a positive integer')
+        if filters is not None and not isinstance(filters, dict):
+            raise StoreError('filters must be a dictionary or None')
+        filters = dict(filters or {})
+        if (set(filters) - {'section'} or (filters and strategy != 'C')):
+            raise StoreError('Only C supports section equality filtering')
+        if 'section' in filters:
+            _text(filters['section'])
+        self._validate_profile(self._profile)
+        try:
+            vector = validate_vector(query_vector)
+        except (TypeError, ValueError) as exc:
+            raise StoreError('Invalid query vector: ' + str(exc)) from exc
+        stored_strategy = 'B' if strategy == 'C' else strategy
+        namespace = Namespace(self.dataset_id, self.profile_id, stored_strategy)
+        with self.retrieval_session() as session:
+            return session.search(strategy, vector, top_k, filters)
 
-        Return chunk ID, text, score and metadata. Parameterize user-supplied values.
-        """
-        raise NotImplementedError("TODO: search")
+    def _search_in_session(self, connection, snapshots, strategy, query_vector, top_k, filters):
+        if not isinstance(strategy, str) or strategy not in ('A', 'B', 'C'):
+            raise StoreError('Expected retrieval strategy A, B or C')
+        if type(top_k) is not int or top_k <= 0:
+            raise StoreError('top_k must be a positive integer')
+        if filters is not None and not isinstance(filters, dict):
+            raise StoreError('filters must be a dictionary or None')
+        filters = dict(filters or {})
+        if (set(filters) - {'section'} or (filters and strategy != 'C')):
+            raise StoreError('Only C supports section equality filtering')
+        if 'section' in filters:
+            _text(filters['section'])
+        self._validate_profile(self._profile)
+        try:
+            vector = validate_vector(query_vector)
+        except (TypeError, ValueError) as exc:
+            raise StoreError('Invalid query vector: ' + str(exc)) from exc
+        stored_strategy = 'B' if strategy == 'C' else strategy
+        namespace = Namespace(self.dataset_id, self.profile_id, stored_strategy)
+        columns = ('chunk_id', 'document_id', 'source', 'physical_page',
+                   'printed_page_label', 'section', 'start_char', 'end_char',
+                   'text', 'metadata', 'snapshot_id', 'manifest_sha256', 'corpus_sha256',
+                   'source_sha256', 'page_text_sha256', 'text_sha256', 'page_id')
+        # Typed section is constrained to equal metadata.section by Migration 0001.
+        sql = ('SELECT ' + ','.join(columns)
+               + ',embedding <=> %s::public.vector AS cosine_distance '
+               'FROM day6_ingestion.chunks WHERE ' + NAMESPACE_WHERE
+               + ' AND snapshot_id=%s'
+               + (' AND section=%s' if filters else '')
+               + ' ORDER BY cosine_distance ASC, chunk_id ASC LIMIT %s')
+        snapshot = snapshots[0 if stored_strategy == 'A' else 1]
+        with connection.cursor() as cursor:
+            params = (json.dumps(vector), *namespace.parameters, snapshot.snapshot_id)
+            if filters:
+                params += (filters['section'],)
+            cursor.execute(sql, (*params, top_k))
+            results = []
+            for rank, row in enumerate(cursor.fetchall(), 1):
+                hit = dict(zip((*columns, 'cosine_distance'), row, strict=True))
+                hit.update(rank=rank, score=1 - hit['cosine_distance'],
+                           dataset_id=self.dataset_id, profile_id=self.profile_id,
+                           requested_strategy=strategy, stored_strategy=stored_strategy)
+                results.append(hit)
+            return results

@@ -1,0 +1,81 @@
+{
+  "started_at": "2026-11-14T13:25:59.844179+00:00",
+  "passed": true,
+  "production_connections": 0,
+  "synthetic_only": true,
+  "errors": [],
+  "isolation": {
+    "container": "day6-store-test-retrieval-2be0f85534",
+    "container_id": "c42a303a9e5d5ec2c0a0993b9d1559a8d47e171518c46688da52af6afc48790d",
+    "cluster": "7708017863910383661",
+    "endpoint": "127.0.0.1:55434",
+    "tmpfs_only": true,
+    "production_cluster_rejected": true,
+    "image_id": "sha256:484e838076e04939d27d3e176e91c86eea96236126023be8d3059761122e579f"
+  },
+  "database_identity": [
+    "day6_lab",
+    "tester",
+    "160016",
+    "7708017863910383661"
+  ],
+  "pgvector": "0.8.7",
+  "migration_checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+  "suite": "cancellation",
+  "pytest_exit_code": 0,
+  "tests": [
+    {
+      "nodeid": "starter/tests/postgres_cancellation_cases.py::test_watchdog_cancels_real_query_and_releases_locks",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 2.584775845999957,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_cancellation_cases.py::test_watchdog_cancels_real_preflight",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 2.4190111319999232,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_cancellation_cases.py::test_normal_exit_disarms_before_driver_exit",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.32339890000002924,
+      "error": null
+    }
+  ],
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "BLOCKED": 0
+  },
+  "evidence": [
+    {
+      "case": "watchdog_query",
+      "sqlstate": "57014",
+      "seconds": 2.0371697410000706,
+      "source": "user request",
+      "connection_closed": true,
+      "watchdog_quiescent": true,
+      "writer_after_error": true
+    },
+    {
+      "case": "watchdog_preflight",
+      "sqlstate": "57014",
+      "connections": 1,
+      "connection_closed": true,
+      "writer_after_error": true
+    },
+    {
+      "case": "normal_exit",
+      "watchdog_quiescent": true,
+      "stale_callback_inert": true,
+      "new_explicit_session_ok": true
+    }
+  ],
+  "container_stopped": true,
+  "seconds": 27.112181828000303,
+  "finished_at": "2026-11-14T13:26:25.272717+00:00"
+}
