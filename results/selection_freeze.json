@@ -1,0 +1,136 @@
+{
+  "selection_version": 1,
+  "dev_run": "data/local/lab_benchmark/dev/dev-002/raw_run.json",
+  "dev_run_sha256": "2e782e98125f7fdc4384fa12e679ec00b6effeedcb6d06415f5be5cb0a9d89d0",
+  "dev_run_id": "665703d0a14749e4bcb07c88175d04df",
+  "dev_finished_at": "2026-11-14T19:50:17.614905+00:00",
+  "freeze_sha256": "f1aafb9c62ccf63a8f98d47283a8286abe0c46087f8546cec82121d9b9586f5d",
+  "benchmark_manifest_sha256": "e333e2f0e0a7bb47569079ab2f9dd461aa15773c505ab5e7dcf0f26a8ff6bde3",
+  "benchmark_config_sha256": "bf60c78178a109f709eae126a73273059a5ca6b7816b56e5e859b2e7369fb0de",
+  "test_entrypoint_sha256": "49cd40d2fc6cb2a9263f0d335c032728b5140f7f51458832cd16a89a8c037276",
+  "profile_id": "528f0792d5fdf66a50c7d42f12de648935d70e2912072e6c6dd2eb6b3f4fd651",
+  "manifest_sha256": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+  "snapshot_ids": [
+    "d06b89acda8d08a5c423bfb5d4cd82662a962481cd7a2f81b2ab324e08b3e860",
+    "c7d9d92e6695709595d044e5a5a09bb8f91826fb692474c7b1806751015ec1e0"
+  ],
+  "configuration": {
+    "config_version": 1,
+    "top_k": 3,
+    "strategies": [
+      "A",
+      "B",
+      "C"
+    ],
+    "deadline_seconds": 120,
+    "metric_version": "exact-evidence-v1",
+    "filter_empty_policy": "NOT_APPLICABLE",
+    "selected_strategy": null
+  },
+  "selection_order": [
+    "max dev Evidence Hit@3",
+    "max dev Hit@1",
+    "min stored chunk count",
+    "A",
+    "B",
+    "C"
+  ],
+  "selected_strategy": "B",
+  "dev_summary": {
+    "metric_version": "exact-evidence-v1",
+    "groups": [
+      {
+        "split": "dev",
+        "strategy": "A",
+        "questions": 15,
+        "exact_hit_at_1": {
+          "numerator": 5,
+          "denominator": 15,
+          "rate": 0.3333333333333333
+        },
+        "exact_evidence_hit_at_3": {
+          "numerator": 7,
+          "denominator": 15,
+          "rate": 0.4666666666666667
+        },
+        "mrr_at_3": 0.4,
+        "empty_results": {
+          "count": 0,
+          "denominator": 15,
+          "rate": 0.0
+        },
+        "filter_diagnostics": {
+          "filtered_questions": 0,
+          "empty_count": 0,
+          "empty_rate": null,
+          "nonempty_denominator": 0,
+          "compliant": 0,
+          "violations": 0,
+          "compliance": null
+        }
+      },
+      {
+        "split": "dev",
+        "strategy": "B",
+        "questions": 15,
+        "exact_hit_at_1": {
+          "numerator": 7,
+          "denominator": 15,
+          "rate": 0.4666666666666667
+        },
+        "exact_evidence_hit_at_3": {
+          "numerator": 10,
+          "denominator": 15,
+          "rate": 0.6666666666666666
+        },
+        "mrr_at_3": 0.5555555555555556,
+        "empty_results": {
+          "count": 0,
+          "denominator": 15,
+          "rate": 0.0
+        },
+        "filter_diagnostics": {
+          "filtered_questions": 0,
+          "empty_count": 0,
+          "empty_rate": null,
+          "nonempty_denominator": 0,
+          "compliant": 0,
+          "violations": 0,
+          "compliance": null
+        }
+      },
+      {
+        "split": "dev",
+        "strategy": "C",
+        "questions": 15,
+        "exact_hit_at_1": {
+          "numerator": 7,
+          "denominator": 15,
+          "rate": 0.4666666666666667
+        },
+        "exact_evidence_hit_at_3": {
+          "numerator": 10,
+          "denominator": 15,
+          "rate": 0.6666666666666666
+        },
+        "mrr_at_3": 0.5555555555555556,
+        "empty_results": {
+          "count": 0,
+          "denominator": 15,
+          "rate": 0.0
+        },
+        "filter_diagnostics": {
+          "filtered_questions": 2,
+          "empty_count": 0,
+          "empty_rate": 0.0,
+          "nonempty_denominator": 2,
+          "compliant": 2,
+          "violations": 0,
+          "compliance": 1.0
+        }
+      }
+    ]
+  },
+  "rationale": "Selected from complete DEV only using the predeclared ordering; TEST not consulted.",
+  "frozen_at": "2026-11-14T19:51:13.556180+00:00"
+}

@@ -1,0 +1,275 @@
+{
+  "status": "PASS",
+  "verification_kind": "Offline artifact/content checks; no experiments or model/database execution",
+  "manual_rows": {
+    "coherence": 30,
+    "metadata": 45,
+    "grounding": 15,
+    "filter_review": 3
+  },
+  "proposal_import": [
+    {
+      "file": "results/manual_evaluation/coherence.csv",
+      "proposal": "review_proposals/coherence_scoring_proposal.csv",
+      "rows": 30,
+      "updated_fields": {
+        "manual_label_0_1_2": 30,
+        "manual_rationale": 30
+      },
+      "preserved_case_only_differences": [],
+      "proposal_sha256": "e737a761b7d4a2834229ce6140e14dcf0c65388b291312ebb18a42c4cd8d4790"
+    },
+    {
+      "file": "results/manual_evaluation/metadata.csv",
+      "proposal": "review_proposals/metadata_scoring_proposal.csv",
+      "rows": 45,
+      "updated_fields": {
+        "manual_source_correct": 45,
+        "manual_page_correct": 45,
+        "manual_section_correct": 45,
+        "manual_sufficient_and_correct": 45,
+        "manual_error_or_rationale": 45
+      },
+      "preserved_case_only_differences": [],
+      "proposal_sha256": "1b9b0b41f4f3bba0f0bed04732f7d744a302676eabbe09fc235649af074beb5c"
+    },
+    {
+      "file": "results/manual_evaluation/grounding.csv",
+      "proposal": "review_proposals/grounding_scoring_proposal.csv",
+      "rows": 15,
+      "updated_fields": {
+        "manual_label_0_1_2": 15,
+        "manual_rationale": 15,
+        "supporting_chunk_ids": 15,
+        "missing_conditions_or_context": 15
+      },
+      "preserved_case_only_differences": [],
+      "proposal_sha256": "83f47a92bd1179c1bb3e936614ab2952adc24b04a78427b6c4ff1f4d194a1b6a"
+    },
+    {
+      "file": "results/manual_evaluation/filter_review.csv",
+      "proposal": "review_proposals/filter_review_scoring_proposal.csv",
+      "rows": 3,
+      "updated_fields": {
+        "manual_top3_scope_compliant": 3,
+        "manual_rationale": 3
+      },
+      "preserved_case_only_differences": [
+        {
+          "row": 1,
+          "field": "filter_applied",
+          "original": "false",
+          "proposal": "False",
+          "action": "preserved original"
+        },
+        {
+          "row": 1,
+          "field": "automatic_scope_match",
+          "original": "false",
+          "proposal": "False",
+          "action": "preserved original"
+        },
+        {
+          "row": 2,
+          "field": "filter_applied",
+          "original": "false",
+          "proposal": "False",
+          "action": "preserved original"
+        },
+        {
+          "row": 2,
+          "field": "automatic_scope_match",
+          "original": "false",
+          "proposal": "False",
+          "action": "preserved original"
+        },
+        {
+          "row": 3,
+          "field": "filter_applied",
+          "original": "true",
+          "proposal": "True",
+          "action": "preserved original"
+        },
+        {
+          "row": 3,
+          "field": "automatic_scope_match",
+          "original": "true",
+          "proposal": "True",
+          "action": "preserved original"
+        }
+      ],
+      "proposal_sha256": "e428b6b4c8e65d9c02aec01c7f60133b31239a65f1a31b67fa0766e4467e2664"
+    }
+  ],
+  "immutable_row_fingerprints": {
+    "coherence": {
+      "before": "6e768d69c5579eb443a0a33b8607997540a201e7df453f2979e743d750465207",
+      "after": "6e768d69c5579eb443a0a33b8607997540a201e7df453f2979e743d750465207"
+    },
+    "metadata": {
+      "before": "088a472db27a9b958c76e2c97b933f6677b408595791a4911cc8a1ca6807d638",
+      "after": "088a472db27a9b958c76e2c97b933f6677b408595791a4911cc8a1ca6807d638"
+    },
+    "grounding": {
+      "before": "5ba2c07dd23ed0e35af941b3c6f0c8e64d14d4513ab5a33c621151f4097f461a",
+      "after": "5ba2c07dd23ed0e35af941b3c6f0c8e64d14d4513ab5a33c621151f4097f461a"
+    },
+    "filter_review": {
+      "before": "b4fff09183028541fc5078502db76bbe7e4bc65493ce823d432bbf7529c323d9",
+      "after": "b4fff09183028541fc5078502db76bbe7e4bc65493ce823d432bbf7529c323d9"
+    }
+  },
+  "checks": [
+    "coherence: proposal manual fields imported exactly; immutable cells/header/order/count unchanged",
+    "metadata: proposal manual fields imported exactly; immutable cells/header/order/count unchanged",
+    "grounding: proposal manual fields imported exactly; immutable cells/header/order/count unchanged",
+    "filter_review: proposal manual fields imported exactly; immutable cells/header/order/count unchanged",
+    "Manual summaries recomputed: coherence A=1.0 B=C=1.7; metadata 15/15 each; grounding 2.0 each",
+    "60 existing traces / 180 returned chunks match normalized source; exact hit flags replayed offline",
+    "All 15 grounding supporting ID lists bind actual top-3 evidence",
+    "Experiment log keeps its original schema and three ordered strategies; n/N matches measured metrics",
+    "B unchanged; DEV hash/freeze identity agrees with TEST and historical DEV-before-freeze-before-TEST times",
+    "111 protected files unchanged: proposal sources, corpus text/chunks, benchmark/gold, runs, selection, code/migrations and evidence",
+    "78 local Markdown links valid; UTF-8 Vietnamese preserved"
+  ],
+  "protected_files_sha256": {
+    "benchmark/NOTICE.txt": "50333d335539f7d01b84f5d23701d38b6a57295515775e988ae0be74635511d1",
+    "benchmark/README.md": "5a06387691f58820f8a32b2067fcd4b5fd4ebba0e078c1c8dbc05ef17a830b3b",
+    "benchmark/dev.jsonl": "92489488ef5ffa9c2ba4cbc1f8bb8f40fe04457cd89f5d9ba857fe76e3546ac0",
+    "benchmark/freeze_manifest.json": "f1aafb9c62ccf63a8f98d47283a8286abe0c46087f8546cec82121d9b9586f5d",
+    "benchmark/gold_review.md": "4b56dd4c7b1d9d973e5bdc0f80d3e3a3098b82181353e93818a39118b17b93e1",
+    "benchmark/manifest.json": "e333e2f0e0a7bb47569079ab2f9dd461aa15773c505ab5e7dcf0f26a8ff6bde3",
+    "benchmark/question.schema.json": "17b00eda737d32d039ace337c3ab8b152f5bbe5aa342ea2117e716f3afc234fb",
+    "benchmark/test.jsonl": "53966ab40ac337aaf2ef7ae1974bf1f09390af53245a2914dbfc4dc0a1fbab47",
+    "data/local/lab_benchmark/dev/dev-002/exported/run.json": "644e58b17aeb0bf647afecbc8da09eaf3eb382993c36ddf4d4eb6456819baaac",
+    "data/local/lab_benchmark/dev/dev-002/raw_run.json": "2e782e98125f7fdc4384fa12e679ec00b6effeedcb6d06415f5be5cb0a9d89d0",
+    "data/local/lab_benchmark/test/test-001/exported/run.json": "21bd998b6ac57dd6b885d9627d8550c3a044b3a70de008c000187931daa58ec5",
+    "data/local/lab_benchmark/test/test-001/raw_run.json": "b032cff16d89ff6d02170db74d7420588bbae0edfcfafbef6f67ee34c65831b3",
+    "data/local/normalized/postgresql-16.16-a4/p0097.txt": "48baf2cda645dda84001c1fb7f8a5b64648b58e217f82b00884d8738c7f108bc",
+    "data/local/normalized/postgresql-16.16-a4/p0098.txt": "c1a0650a7047b2b2f435712933c095cf03d1bba8cb9b08e4d827d7b34a92bb56",
+    "data/local/normalized/postgresql-16.16-a4/p0099.txt": "30d42d42226a4c6daff590f4ad05338494ee37aa494b807baeb1ee9356463a92",
+    "data/local/normalized/postgresql-16.16-a4/p0100.txt": "91a27ac33e8c0a9dc8578bb383b2daaaac2dc50309128cf6cbdfab80506d2114",
+    "data/local/normalized/postgresql-16.16-a4/p0101.txt": "a18c96b190ac1d792f5234d6ef405a9d12ae768bfa3d959b93d1f1f2147c2a9a",
+    "data/local/normalized/postgresql-16.16-a4/p0102.txt": "c95a16bf6207310d1e1183fcb269290a1fe5080482c3216fe41d49a3d488e56d",
+    "data/local/normalized/postgresql-16.16-a4/p0103.txt": "bd7b7cb65123411eef27902729bcbd33f1e9d3e1968f13cde033b9a03fd4310c",
+    "data/local/normalized/postgresql-16.16-a4/p0104.txt": "253c9e7449015fdad745b5f0f3a984fde48a2b88a04006cfef11f0dcdbcf1570",
+    "data/local/normalized/postgresql-16.16-a4/p0105.txt": "a07b61635fb5a620348188caa63ad0d2499fe26d5d21b077e82e546530896a0c",
+    "data/local/normalized/postgresql-16.16-a4/p0106.txt": "200f3caaadb644722f334f4ef087ecf9a3c521b35900575da7ea7a3d66535c64",
+    "data/local/normalized/postgresql-16.16-a4/p0107.txt": "c90a0d48bb02e50761eb3a2cc9e82bf945cfd553f6504f42c13bc876bf7b9b15",
+    "data/local/normalized/postgresql-16.16-a4/p0108.txt": "29f992686880e4e04d23433acca7e3773ac30dfb8505defecf3b22ece614ac45",
+    "data/local/normalized/postgresql-16.16-a4/p0109.txt": "8702b1cd51bcda5b59e12713b1f6199fcfa8f90734dd86d16fd37840432b989d",
+    "data/local/normalized/postgresql-16.16-a4/p0110.txt": "127bfbba5e36f9360848790feb998e05ce2e94f18e26b6eca8920d174b4db3a0",
+    "data/local/normalized/postgresql-16.16-a4/p0111.txt": "ac1bf73c025fe61e1e244798baa2194a0bfe89505e4780f4a6ee0b1156644039",
+    "data/local/normalized/postgresql-16.16-a4/p0112.txt": "983b441e8a156e34374dff7dc64b6ebe7911d00f7175ac9a8c1c5572ec99ec58",
+    "data/local/normalized/postgresql-16.16-a4/p0113.txt": "0986c8bb7ee04a2a64735437e5a6cec24afc2089c06f539aa81c665b9b05d861",
+    "data/local/normalized/postgresql-16.16-a4/p0114.txt": "1cc53782fd40f9e84be75dd4968e7cde62d22e7fc05f57ef056d2b5e5a35b3a1",
+    "data/local/normalized/postgresql-16.16-a4/p0115.txt": "9334802b9b487623ae6db7fac63844c9ba9b7d1b4672410a7507c70dbf6dc05e",
+    "data/local/normalized/postgresql-16.16-a4/p0116.txt": "4cddb3f6e6cc7a8a7e2d526b91799e54761e1c1d48195621d153c19b6d20f8d7",
+    "data/local/normalized/postgresql-16.16-a4/p0117.txt": "dddcbb5e493f2cd4ce41d42a8ad5c83f1e58d90119d5a42ed2bdba69e7ce3d84",
+    "data/local/normalized/postgresql-16.16-a4/p0118.txt": "78e93414fec0a6d3dc9fcc865af878d811479877d40f38656828f8ccbe512c33",
+    "data/local/normalized/postgresql-16.16-a4/p0119.txt": "d7e18f667e7d5ed13a108c3650bd1e3729a08d51818341d93701864178631071",
+    "data/local/normalized/postgresql-16.16-a4/p0120.txt": "0d1cd9a82f620ab6aa755101a9298e77f70910bfcada4faa84cd89a90fad0bb6",
+    "data/local/normalized/postgresql-16.16-a4/p0121.txt": "2b47cc455c5cdaa5a9467d45437a4bbdfd4a595aa14cb5fc336bafcae2477840",
+    "data/local/normalized/postgresql-16.16-a4/p0122.txt": "dab2e45a381c0643c17c107994b2a7c529d44f1e54099d3e3fbf2f8e074adce7",
+    "data/local/normalized/postgresql-16.16-a4/p0123.txt": "286761a395c656178a624a98ae452a52ad8df408e5c42e0e0738c357f7e531de",
+    "data/local/normalized/postgresql-16.16-a4/p0124.txt": "382e01904c4d0bc3b9fa95a2be52599be8a29e34dcb1f7e92192b80c00e7a15c",
+    "data/local/normalized/postgresql-16.16-a4/p0125.txt": "76579d5cde97547e20d98f39feba485fc3cff2ad877447f1e0606288472b4ceb",
+    "data/local/normalized/postgresql-16.16-a4/p0126.txt": "e797ab8e8af7a8a41854611329e52892bdafbc56af6acbcd10e302931532cd1c",
+    "data/local/normalized/postgresql-16.16-a4/p0127.txt": "3b865576c261dcac29d0c8cd6cb3e12dd71f3e252b0d11ef82ae68af103a977b",
+    "data/local/normalized/postgresql-16.16-a4/p0128.txt": "b22b6caf9fa5c480c5e4ccc5bbc0ba32060fcb89aa3e04826f66269b0a4ec13d",
+    "data/local/normalized/postgresql-16.16-a4/p0129.txt": "0f433dda68f933dd24c681669b20679e228748ba708caa8aadd152a649ef7f92",
+    "data/local/normalized/postgresql-16.16-a4/p0130.txt": "a8ae3e441c64595452153749b8e98fbb09d034a8a16051d48b08c8483dbddcd6",
+    "data/local/normalized/postgresql-16.16-a4/p0131.txt": "2c1725943d41ac3af0df35385a060d318f3b2984ae40b2f38744fe5ae284f0a9",
+    "data/local/normalized/postgresql-16.16-a4/p0132.txt": "0b3344c446cdc64b25374caee96047fcde2a215499a5c5ec04a64d3290c980ed",
+    "data/local/normalized/postgresql-16.16-a4/p0148.txt": "e6f0ec57a5e3b579448abfa4489df206f0959107bbe8efbf45e6263772404eac",
+    "data/local/normalized/postgresql-16.16-a4/p0149.txt": "dd1ac913d692a8237cebf94398ed2e872e8a5b77a84d852b45d318a13fe5d95c",
+    "data/local/normalized/postgresql-16.16-a4/p0150.txt": "bdb59d912822c25538511668b3fe149e48fc332a837e25e08a1064e43226d3d0",
+    "data/local/normalized/postgresql-16.16-a4/p0151.txt": "c12a1f8444d9f9656ea491ba14517160140a195ab47f91135dab6962a88d1477",
+    "data/local/stage3/chunks/A.jsonl": "61e51d73d8f9ae5e2e462999d9370d59a742398d7cb03aa9d1796668d871a52b",
+    "data/local/stage3/chunks/B.jsonl": "5aa3c038c002b6bac529424b585d6cfd0c8132d6d3e1d021e80a9ef473f2fdd5",
+    "data/manifest.json": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+    "results/benchmark_config.json": "bf60c78178a109f709eae126a73273059a5ca6b7816b56e5e859b2e7369fb0de",
+    "results/coherence_anchors.csv": "43e0e3d56404485a47f6e6a445be977a1acc2b4e353928620bbc3bda8f756cd6",
+    "results/manual_evaluation/NOTICE.txt": "50333d335539f7d01b84f5d23701d38b6a57295515775e988ae0be74635511d1",
+    "results/manual_evaluation/coherence_evidence.md": "47726b56ec977c0fb2cf65549f33db71edb06d3dcceae23c4f43e4ebd71f7186",
+    "results/manual_evaluation/provenance.json": "ae3e2690042fbd66ed6722696610b992802edcecc9c5a3eae81a09ec2efcaab6",
+    "results/manual_evaluation/retrieval_metrics.csv": "1654c7deadc0a1b374cbec06514d05f6a3c236a766e7bfbf791b0a9ab36b38de",
+    "results/manual_evaluation/retrieval_traces.jsonl": "5757170465ff8b3d10266061d42f33dabc53d7c83efe9eeef767720982d486ed",
+    "results/manual_evaluation/test_evidence.md": "5444cfbf549c5cb2d7490400454f3e1869954fe57df6b8a64d28fbd489b4512e",
+    "results/selection_freeze.json": "35ffaca6aaedd3b8e0402f159d955294aaae6c19458c70d6fe1f1e561157c040",
+    "review_proposals/coherence_scoring_proposal.csv": "e737a761b7d4a2834229ce6140e14dcf0c65388b291312ebb18a42c4cd8d4790",
+    "review_proposals/filter_review_scoring_proposal.csv": "e428b6b4c8e65d9c02aec01c7f60133b31239a65f1a31b67fa0766e4467e2664",
+    "review_proposals/grounding_scoring_proposal.csv": "83f47a92bd1179c1bb3e936614ab2952adc24b04a78427b6c4ff1f4d194a1b6a",
+    "review_proposals/metadata_scoring_proposal.csv": "1b9b0b41f4f3bba0f0bed04732f7d744a302676eabbe09fc235649af074beb5c",
+    "starter/migrations/0001_day6_ingestion.sql": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+    "starter/migrations/manifest.json": "ffe2a9d942be2aa9ddb57e9ee4cccfb5df378ed1dfe8700fb5ea22977330a577",
+    "starter/scripts/apply_full_corpus.py": "11e3185feb03890f5d46230df5f2a0b8429ec8ebac248a2913d9581e2f43a58b",
+    "starter/scripts/apply_migration_0001.py": "f130b62195edc4db9cfacfa017d1a5b3f1d3b30a2d32903bc2d3684f9a39cd73",
+    "starter/scripts/check_benchmark.py": "8d705ce842cc4fb93b9fe4250fec4f8b3478514473604fe2cd250fff1229681b",
+    "starter/scripts/check_corpus.py": "ffe8b31520157214ce0dca2e2ce14aab31a3d23384fc3339d253eb8ca274963b",
+    "starter/scripts/check_embedding_smoke.py": "536825a482e711a80cd02bdf3ca4bbb342da2c3ab33fee5c9cd5e065a4c8804b",
+    "starter/scripts/check_full_corpus_preflight.py": "38a5db3be619713020fe9c166249ccc915d1133725610150ebacbbc8ffa25938",
+    "starter/scripts/check_ingestion_chunking.py": "04ea1fcabd50c5df4c3bcf86f345d880e806f3caf7bc041a4b1b9ec792cd432b",
+    "starter/scripts/check_retrieval_postgres.py": "052b49df7143052e33be20f456d5c69bc432b29508f0aabf7a967db5066d091f",
+    "starter/scripts/check_schema_isolated.py": "d07c2a62cbf8ed4f6ed6dee650ba10fc3604c5be5ce528eed140465675364efd",
+    "starter/scripts/check_setup.py": "8c43623ec85e2bf16086672f4a4a75af0fc0965b4f6bd279895730bfa3c6f07e",
+    "starter/scripts/check_store_postgres.py": "c4c3e1c9edf1e878d978a6b1944111824a4c7797e3d14c41cac9225f976e225e",
+    "starter/scripts/extract_corpus.py": "482fc2093de3b7891c85a04feb985b6007a52b04e1b4aeff2174ce0510e5c5cd",
+    "starter/scripts/plan_schema.py": "e44903f5358c787bd49f66540c60dafbc3c15766e99eb3d8eeb82fc6290d363c",
+    "starter/scripts/prepare_dev_evaluation.py": "eec251cad7d75630dcc47feeac1744edda7bd90126086433ed55b7680fa78221",
+    "starter/scripts/probe_local_lab_db.py": "e534556ca6a783e63c5a1ea7f30530288773090e80c8ba177ab3e17d5d56f2cb",
+    "starter/scripts/run_evaluation.py": "004ed62cddf025adacd879bafb60014e660d91644c8e360a55f636834d149e91",
+    "starter/scripts/run_local_lab_dev.py": "4bacc1e289318fe660a053aa6d564e81b4b73043038a06e471e07998a728a6d2",
+    "starter/scripts/run_local_lab_test.py": "49cd40d2fc6cb2a9263f0d335c032728b5140f7f51458832cd16a89a8c037276",
+    "starter/scripts/store_test_target.py": "3b097d0a5a122e0c1204153fd827a4490a72e35dbd282684ea75e4112c2b1b7d",
+    "starter/src/__init__.py": "86b6f304b218783f00e27c050a111049f5dc07fd98194c556deb0633d7c8980a",
+    "starter/src/benchmark.py": "f8a3d84d7e70ae6add757ad86afc677e62a14d0db569e36b911009b3564522eb",
+    "starter/src/chunking.py": "ec947424add14e5330248b3449ffa150d0ef2dfa0f6a4dafb3696224bbb3b4bb",
+    "starter/src/corpus.py": "4ea1aff1a18aa053efa4704584f290c0f9dc3025fbc7ec2c3d9a05d669e2d77e",
+    "starter/src/database_probe.py": "6aea445218b9dd13834a882ca479355f18c7d49462c3f3b3619688d53c58796a",
+    "starter/src/dev_authorization.py": "3e0f5d8f952e545053af737c7fa1c2127e35920fe5808e37b13b345fd1b4cc5a",
+    "starter/src/dev_bootstrap.py": "071b9846a69e719a9f09f2a32b7fd077d4cfa234126c114413658c644a53ff13",
+    "starter/src/embeddings.py": "a76d1943d75d578b9d16b3b7a2f970280bc8fc8ab8f7dc9a282be84ed10d686a",
+    "starter/src/evaluation.py": "d41a6d524dfc43cbd164fa6b00e455323d2a08fc6607762796927f59d4f0d575",
+    "starter/src/evaluation_runner.py": "91b4c2bdb8a1f19e5bdcee23fb1f90fbb9fc1b5c1749e270593015d1642aa1e7",
+    "starter/src/ingestion.py": "32f49d8e53651e74fb6d48407c476af3610b6943143e44065ee2921cf484500f",
+    "starter/src/lab_dev_runtime.py": "b5f1419c65b655e4d1308649e4d462637c3536bc2acab91f52de5964b9c4347f",
+    "starter/src/live_dev_runtime.py": "c1f3bfb22561dad198220db60553d5fc7264a4d797b1caa66b5053d6ee615ba0",
+    "starter/src/live_probe.py": "b74d3f39ae6bb6bfb6786eaac5cd80968828c47f7ce4d0dcc1d78b059413a7af",
+    "starter/src/model_load_only.py": "4a45a7def9036fff42fade424ebec35a638564b397ab09f874cbe0649cb1bab0",
+    "starter/src/models.py": "5380cd16fcd0d4396db5dda3a205c148c148a5fd6e90b90d060dd546e39bb68d",
+    "starter/src/pinned_model_factory.py": "6f668a38ee67d5ac502192e6cf9c1228c0f55d11bbb9eb437b8013f41abe16d2",
+    "starter/src/preparation.py": "287cb3480b94fee414f42d136f9f58dc4c39b1cd478efc3b62178398f0fae8dd",
+    "starter/src/retrieval.py": "5dc9129e0a1e1fced6e21da3dc5b92d7a0f2a07bd72e7bcd5ede77cc1d4bb19d",
+    "starter/src/run.py": "0e16a8385b300602c53cccd22e506a8fb42031ee38efd548a4650c5b579355bf",
+    "starter/src/schema.py": "44af24d061e2d1b84f43302964661f7ef610131a8d3a2d975cc80704af779479",
+    "starter/src/store.py": "ef11b678d0d41b99a9911e280342c963cd8d310c19a0bef77253c16537cf7dfc"
+  },
+  "modified_files": [
+    "README.md",
+    "STUDENT.md",
+    "artifacts/experiment_log.csv",
+    "report/individual/2A202603989_LeThiLy.md",
+    "results/manual_evaluation/README.md",
+    "results/manual_evaluation/coherence.csv",
+    "results/manual_evaluation/metadata.csv",
+    "results/manual_evaluation/grounding.csv",
+    "results/manual_evaluation/filter_review.csv"
+  ],
+  "created_files": [
+    "results/manual_evaluation/summary.json",
+    "results/manual_evaluation/finalization_validation.json",
+    "results/day06_finalization.diff"
+  ],
+  "remaining_requirements": [
+    "Confirm full student name in STUDENT.md; MSSV/class currently inferred from repository/file names.",
+    "Review final report/diff and decide final submission commit later; no commit or push was performed.",
+    "Verify grader access and submit repository link through the class channel; not verified here."
+  ],
+  "provenance_limitations": [
+    "Proposal reviewer/reviewed_at fields were blank and remain blank; confirmation is the user message, not an invented independent signature or timestamp.",
+    "Original provenance.json is a historical extraction snapshot, not updated to claim current manual fields are blank."
+  ],
+  "runtime_not_executed": true,
+  "commit_or_push_performed": false
+}

@@ -1,0 +1,21 @@
+{
+  "config_version": 1,
+  "top_k": 3,
+  "deadline_seconds": 120,
+  "metric_version": "exact-evidence-v1",
+  "strategies": {
+    "A": {"chunking": "fixed_size", "size": 500, "overlap": 50, "stored_strategy": "A", "chunk_count": 246, "filter": null},
+    "B": {"chunking": "by_paragraph", "max_size": 500, "stored_strategy": "B", "chunk_count": 264, "filter": null},
+    "C": {"chunking": "by_paragraph", "max_size": 500, "stored_strategy": "B", "chunk_count": 264, "filter": "question-supplied section equality only"}
+  },
+  "selection_order": ["max dev Evidence Hit@3", "max dev Hit@1", "min stored chunk count", "A", "B", "C"],
+  "selection_metrics": "exact-evidence-v1; test results never select the strategy",
+  "model": "intfloat/multilingual-e5-small",
+  "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+  "dimensions": 384,
+  "metric": "cosine",
+  "query_prefix": "query: ",
+  "document_prefix": "passage: ",
+  "test_queries": 5,
+  "dev_queries": 15
+}

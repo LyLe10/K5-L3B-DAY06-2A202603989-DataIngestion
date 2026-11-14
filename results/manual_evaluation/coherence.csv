@@ -1,0 +1,301 @@
+anchor_id,strategy,stored_strategy,source_id,physical_page,printed_page_label,anchor_offset,chunk_id,start_char,end_char,chunk_text,source_page_sha256,evidence_ref,shared_chunk_with,manual_label_0_1_2,manual_rationale,reviewer,reviewed_at
+H01,A,A,postgresql-16.16-a4,97,59,1721,A:2b6d70982f37f1424594ba3bab409311c35d4808f7699c32bd27264192b61bcd,1350,1850,"e will see how to deal with this issue.
+Each column has a data type. The data type constrains the set of possible values that can be assigned to
+a column and assigns semantics to the data stored in the column so that it can be used for computations.
+For instance, a column declared to be of a numerical type will not accept arbitrary text strings, and
+the data stored in such a column can be used for mathematical computations. By contrast, a column
+declared to be of a character string type will acc",48baf2cda645dda84001c1fb7f8a5b64648b58e217f82b00884d8738c7f108bc,coherence_evidence.md#h01-a,,1,Đề xuất: Mở đầu và kết thúc giữa từ/câu; ý về kiểu dữ liệu vẫn hiểu được.,,
+H01,B,B,postgresql-16.16-a4,97,59,1721,B:5427dd87d957b5d58ea8844eeb1fa6ababf9d437309dc06b4dbab2310de9ac7d,1327,1778,"Later in
+this chapter we will see how to deal with this issue.
+Each column has a data type. The data type constrains the set of possible values that can be assigned to
+a column and assigns semantics to the data stored in the column so that it can be used for computations.
+For instance, a column declared to be of a numerical type will not accept arbitrary text strings, and
+the data stored in such a column can be used for mathematical computations. ",48baf2cda645dda84001c1fb7f8a5b64648b58e217f82b00884d8738c7f108bc,coherence_evidence.md#h01-b,,1,"Đề xuất: Giữ được giải thích kiểu dữ liệu và ví dụ số, nhưng mở bằng câu nối ngữ cảnh.",,
+H01,C,B,postgresql-16.16-a4,97,59,1721,B:5427dd87d957b5d58ea8844eeb1fa6ababf9d437309dc06b4dbab2310de9ac7d,1327,1778,"Later in
+this chapter we will see how to deal with this issue.
+Each column has a data type. The data type constrains the set of possible values that can be assigned to
+a column and assigns semantics to the data stored in the column so that it can be used for computations.
+For instance, a column declared to be of a numerical type will not accept arbitrary text strings, and
+the data stored in such a column can be used for mathematical computations. ",48baf2cda645dda84001c1fb7f8a5b64648b58e217f82b00884d8738c7f108bc,coherence_evidence.md#h01-b,B,1,"Đề xuất: Giữ được giải thích kiểu dữ liệu và ví dụ số, nhưng mở bằng câu nối ngữ cảnh.",,
+H02,A,A,postgresql-16.16-a4,98,60,1355,A:a4e799582379a786360f585c4f706b5f4f2b81533ee3da7a71e1820b64db6317,900,1400,"ble before creating it, ignoring any error messages, so that the
+script works whether or not the table exists. (If you like, you can use the DROP TABLE IF EXISTS
+variant to avoid the error messages, but this is not standard SQL.)
+If you need to modify a table that already exists, see Section 5.6 later in this chapter.
+With the tools discussed so far you can create fully functional tables. The remainder of this chapter is
+concerned with adding features to the table definition to ensure data integ",c1a0650a7047b2b2f435712933c095cf03d1bba8cb9b08e4d827d7b34a92bb56,coherence_evidence.md#h02-a,,1,Đề xuất: Mở đầu giữa từ và kết thúc giữa từ data integrity; thiếu toàn vẹn đoạn.,,
+H02,B,B,postgresql-16.16-a4,98,60,1355,B:6cf338bff5ab46be427c3db9ce01ea86be080ca0ad9e6b60b83c54e4762f8409,1292,1764,"The remainder of this chapter is
+concerned with adding features to the table definition to ensure data integrity, security, or convenience.
+If you are eager to fill your tables with data now you can skip ahead to Chapter 6 and read the rest
+of this chapter later.
+5.2. Default Values
+A column can be assigned a default value. When a new row is created and no values are specified
+for some of the columns, those columns will be filled with their respective default values. ",c1a0650a7047b2b2f435712933c095cf03d1bba8cb9b08e4d827d7b34a92bb56,coherence_evidence.md#h02-b,,2,"Đề xuất: Các câu hoàn chỉnh về tính toàn vẹn và default value, đọc hiểu độc lập.",,
+H02,C,B,postgresql-16.16-a4,98,60,1355,B:6cf338bff5ab46be427c3db9ce01ea86be080ca0ad9e6b60b83c54e4762f8409,1292,1764,"The remainder of this chapter is
+concerned with adding features to the table definition to ensure data integrity, security, or convenience.
+If you are eager to fill your tables with data now you can skip ahead to Chapter 6 and read the rest
+of this chapter later.
+5.2. Default Values
+A column can be assigned a default value. When a new row is created and no values are specified
+for some of the columns, those columns will be filled with their respective default values. ",c1a0650a7047b2b2f435712933c095cf03d1bba8cb9b08e4d827d7b34a92bb56,coherence_evidence.md#h02-b,B,2,"Đề xuất: Các câu hoàn chỉnh về tính toàn vẹn và default value, đọc hiểu độc lập.",,
+H03,A,A,postgresql-16.16-a4,99,61,1243,A:680785feffb3ebee1bcc0d00d86e95c55d73a4f21f203647381dd71a22d2c502,900,1400,"erated column is similar to a
+materialized view (except that it is always updated automatically). PostgreSQL currently implements
+only stored generated columns.
+To create a generated column, use the GENERATED ALWAYS AS clause in CREATE TABLE, for
+example:
+CREATE TABLE people (
+...,
+height_cm numeric,
+height_in numeric GENERATED ALWAYS AS (height_cm / 2.54) STORED
+);
+The keyword STORED must be specified to choose the stored kind of generated column. See CREATE
+TABLE for more details.
+A generated ",30d42d42226a4c6daff590f4ad05338494ee37aa494b807baeb1ee9356463a92,coherence_evidence.md#h03-a,,1,Đề xuất: Mở đầu giữa từ và kết thúc bằng câu dang dở; ví dụ SQL vẫn nguyên vẹn.,,
+H03,B,B,postgresql-16.16-a4,99,61,1243,B:e237cf18f610bca3c341f8aa57b1bf756c27ca3c2f4d0598411b56f15c8a9250,1061,1438,"To create a generated column, use the GENERATED ALWAYS AS clause in CREATE TABLE, for
+example:
+CREATE TABLE people (
+...,
+height_cm numeric,
+height_in numeric GENERATED ALWAYS AS (height_cm / 2.54) STORED
+);
+The keyword STORED must be specified to choose the stored kind of generated column. See CREATE
+TABLE for more details.
+A generated column cannot be written to directly. ",30d42d42226a4c6daff590f4ad05338494ee37aa494b807baeb1ee9356463a92,coherence_evidence.md#h03-b,,2,"Đề xuất: Ví dụ CREATE TABLE và giải thích STORED hoàn chỉnh, kết thúc ở câu trọn.",,
+H03,C,B,postgresql-16.16-a4,99,61,1243,B:e237cf18f610bca3c341f8aa57b1bf756c27ca3c2f4d0598411b56f15c8a9250,1061,1438,"To create a generated column, use the GENERATED ALWAYS AS clause in CREATE TABLE, for
+example:
+CREATE TABLE people (
+...,
+height_cm numeric,
+height_in numeric GENERATED ALWAYS AS (height_cm / 2.54) STORED
+);
+The keyword STORED must be specified to choose the stored kind of generated column. See CREATE
+TABLE for more details.
+A generated column cannot be written to directly. ",30d42d42226a4c6daff590f4ad05338494ee37aa494b807baeb1ee9356463a92,coherence_evidence.md#h03-b,B,2,"Đề xuất: Ví dụ CREATE TABLE và giải thích STORED hoàn chỉnh, kết thúc ở câu trọn.",,
+H04,A,A,postgresql-16.16-a4,100,62,1693,A:d590313cfc48da2ec46c904159cd8d94dbdfa1f9d7fa4ff166323da0b51da94a,1350,1850,"atically be copied from the parent. ALTER TABLE ... ATTACH PARTITION will
+insist that parent and child columns already match as to generation status, but it will not require
+their generation expressions to match.
+• In case of multiple inheritance, if one parent column is a generated column, then all parent
+columns must be generated columns. If they do not all have the same generation expression, then
+the desired expression for the child must be specified explicitly.
+Additional considerations app",91a27ac33e8c0a9dc8578bb383b2daaaac2dc50309128cf6cbdfab80506d2114,coherence_evidence.md#h04-a,,1,"Đề xuất: Mở đầu giữa từ, kết thúc giữa từ; các quy tắc vẫn đọc hiểu phần lớn.",,
+H04,B,B,postgresql-16.16-a4,100,62,1693,B:2861c89f0eac2e24a2be461251d37637c994f5f3c04b85efcdf8c736bb383458,1402,1886,"ATTACH PARTITION will
+insist that parent and child columns already match as to generation status, but it will not require
+their generation expressions to match.
+• In case of multiple inheritance, if one parent column is a generated column, then all parent
+columns must be generated columns. If they do not all have the same generation expression, then
+the desired expression for the child must be specified explicitly.
+Additional considerations apply to the use of generated columns.
+",91a27ac33e8c0a9dc8578bb383b2daaaac2dc50309128cf6cbdfab80506d2114,coherence_evidence.md#h04-b,,1,Đề xuất: Bắt đầu giữa mệnh đề ATTACH PARTITION; các gạch đầu dòng sau trọn ý.,,
+H04,C,B,postgresql-16.16-a4,100,62,1693,B:2861c89f0eac2e24a2be461251d37637c994f5f3c04b85efcdf8c736bb383458,1402,1886,"ATTACH PARTITION will
+insist that parent and child columns already match as to generation status, but it will not require
+their generation expressions to match.
+• In case of multiple inheritance, if one parent column is a generated column, then all parent
+columns must be generated columns. If they do not all have the same generation expression, then
+the desired expression for the child must be specified explicitly.
+Additional considerations apply to the use of generated columns.
+",91a27ac33e8c0a9dc8578bb383b2daaaac2dc50309128cf6cbdfab80506d2114,coherence_evidence.md#h04-b,B,1,Đề xuất: Bắt đầu giữa mệnh đề ATTACH PARTITION; các gạch đầu dòng sau trọn ý.,,
+H05,A,A,postgresql-16.16-a4,101,63,1252,A:624c1199e68accb41511baeaf7abddfb8bd0ec9b474f5ae23fdb338ce5c0c0a5,900,1400,"roducts (
+product_no integer,
+name text,
+price numeric CONSTRAINT positive_price CHECK (price > 0)
+);
+So, to specify a named constraint, use the key word CONSTRAINT followed by an identifier followed
+by the constraint definition. (If you don't specify a constraint name in this way, the system chooses
+a name for you.)
+A check constraint can also refer to several columns. Say you store a regular price and a discounted
+price, and you want to ensure that the discounted price is lower than the regula",a18c96b190ac1d792f5234d6ef405a9d12ae768bfa3d959b93d1f1f2147c2a9a,coherence_evidence.md#h05-a,,1,Đề xuất: Bắt đầu giữa tên bảng và kết thúc giữa từ; SQL/giải thích bị mất ranh giới.,,
+H05,B,B,postgresql-16.16-a4,101,63,1252,B:5bd0576c5d375f1144a8b2ba788acee8705346c59de2ae2e27b5e70af37330a8,871,1273,"The syntax is:
+CREATE TABLE products (
+product_no integer,
+name text,
+price numeric CONSTRAINT positive_price CHECK (price > 0)
+);
+So, to specify a named constraint, use the key word CONSTRAINT followed by an identifier followed
+by the constraint definition. (If you don't specify a constraint name in this way, the system chooses
+a name for you.)
+A check constraint can also refer to several columns. ",a18c96b190ac1d792f5234d6ef405a9d12ae768bfa3d959b93d1f1f2147c2a9a,coherence_evidence.md#h05-b,,2,"Đề xuất: Ví dụ SQL hoàn chỉnh và giải thích constraint, nhưng câu dẫn The syntax is thiếu ngữ cảnh.",,
+H05,C,B,postgresql-16.16-a4,101,63,1252,B:5bd0576c5d375f1144a8b2ba788acee8705346c59de2ae2e27b5e70af37330a8,871,1273,"The syntax is:
+CREATE TABLE products (
+product_no integer,
+name text,
+price numeric CONSTRAINT positive_price CHECK (price > 0)
+);
+So, to specify a named constraint, use the key word CONSTRAINT followed by an identifier followed
+by the constraint definition. (If you don't specify a constraint name in this way, the system chooses
+a name for you.)
+A check constraint can also refer to several columns. ",a18c96b190ac1d792f5234d6ef405a9d12ae768bfa3d959b93d1f1f2147c2a9a,coherence_evidence.md#h05-b,B,2,"Đề xuất: Ví dụ SQL hoàn chỉnh và giải thích constraint, nhưng câu dẫn The syntax is thiếu ngữ cảnh.",,
+H06,A,A,postgresql-16.16-a4,102,64,1126,A:a08f260e97026a6030374c472357810c2301b2d47ddec936ee70f46499fc8265,900,1400,"ain null values,
+the not-null constraint described in the next section can be used.
+Note
+PostgreSQL does not support CHECK constraints that reference table data other than the new
+or updated row being checked. While a CHECK constraint that violates this rule may appear
+to work in simple tests, it cannot guarantee that the database will not reach a state in which
+the constraint condition is false (due to subsequent changes of the other row(s) involved). This
+would cause a database dump and restor",c95a16bf6207310d1e1183fcb269290a1fe5080482c3216fe41d49a3d488e56d,coherence_evidence.md#h06-a,,1,Đề xuất: Bắt đầu giữa từ và kết thúc giữa từ restore; cảnh báo CHECK vẫn hiểu một phần.,,
+H06,B,B,postgresql-16.16-a4,102,64,1126,B:5b3f300cc4864fada187774e2557a17ab9c3b765b2ecc14734a97e90431e2771,1110,1582,"While a CHECK constraint that violates this rule may appear
+to work in simple tests, it cannot guarantee that the database will not reach a state in which
+the constraint condition is false (due to subsequent changes of the other row(s) involved). This
+would cause a database dump and restore to fail. The restore could fail even when the complete
+database state is consistent with the constraint, due to rows not being loaded in an order that
+will satisfy the constraint. ",c95a16bf6207310d1e1183fcb269290a1fe5080482c3216fe41d49a3d488e56d,coherence_evidence.md#h06-b,,1,"Đề xuất: Đoạn cảnh báo logic tương đối trọn, nhưng thiếu câu mở đầu nêu CHECK constraints.",,
+H06,C,B,postgresql-16.16-a4,102,64,1126,B:5b3f300cc4864fada187774e2557a17ab9c3b765b2ecc14734a97e90431e2771,1110,1582,"While a CHECK constraint that violates this rule may appear
+to work in simple tests, it cannot guarantee that the database will not reach a state in which
+the constraint condition is false (due to subsequent changes of the other row(s) involved). This
+would cause a database dump and restore to fail. The restore could fail even when the complete
+database state is consistent with the constraint, due to rows not being loaded in an order that
+will satisfy the constraint. ",c95a16bf6207310d1e1183fcb269290a1fe5080482c3216fe41d49a3d488e56d,coherence_evidence.md#h06-b,B,1,"Đề xuất: Đoạn cảnh báo logic tương đối trọn, nhưng thiếu câu mở đầu nêu CHECK constraints.",,
+H07,A,A,postgresql-16.16-a4,103,65,1204,A:1c139e8f9b26ae9e0f5a5f98cf3a72b390fd752de60bde7dd8318d1f41a65b7b,900,1400,"oducts (
+product_no integer NOT NULL,
+name text NOT NULL,
+price numeric
+);
+A not-null constraint is always written as a column constraint. A not-null constraint is functionally
+equivalent to creating a check constraint CHECK ( column_name IS NOT NULL) , but in
+PostgreSQL creating an explicit not-null constraint is more efficient. The drawback is that you cannot
+give explicit names to not-null constraints created this way.
+Of course, a column can have more than one constraint. Just write the cons",bd7b7cb65123411eef27902729bcbd33f1e9d3e1968f13cde033b9a03fd4310c,coherence_evidence.md#h07-a,,1,Đề xuất: Bắt đầu giữa từ products và kết thúc giữa từ constraints; ví dụ và ý chính vẫn rõ.,,
+H07,B,B,postgresql-16.16-a4,103,65,1204,B:f619e42075c0d7b00078f8ff401575e3e173ec99da456a30899beb1450874af0,867,1326,"A syntax example:
+CREATE TABLE products (
+product_no integer NOT NULL,
+name text NOT NULL,
+price numeric
+);
+A not-null constraint is always written as a column constraint. A not-null constraint is functionally
+equivalent to creating a check constraint CHECK ( column_name IS NOT NULL) , but in
+PostgreSQL creating an explicit not-null constraint is more efficient. The drawback is that you cannot
+give explicit names to not-null constraints created this way.
+",bd7b7cb65123411eef27902729bcbd33f1e9d3e1968f13cde033b9a03fd4310c,coherence_evidence.md#h07-b,,2,Đề xuất: Ví dụ NOT NULL và giải thích hoàn chỉnh; câu mở đầu A syntax example có thể hiểu.,,
+H07,C,B,postgresql-16.16-a4,103,65,1204,B:f619e42075c0d7b00078f8ff401575e3e173ec99da456a30899beb1450874af0,867,1326,"A syntax example:
+CREATE TABLE products (
+product_no integer NOT NULL,
+name text NOT NULL,
+price numeric
+);
+A not-null constraint is always written as a column constraint. A not-null constraint is functionally
+equivalent to creating a check constraint CHECK ( column_name IS NOT NULL) , but in
+PostgreSQL creating an explicit not-null constraint is more efficient. The drawback is that you cannot
+give explicit names to not-null constraints created this way.
+",bd7b7cb65123411eef27902729bcbd33f1e9d3e1968f13cde033b9a03fd4310c,coherence_evidence.md#h07-b,B,2,Đề xuất: Ví dụ NOT NULL và giải thích hoàn chỉnh; câu mở đầu A syntax example có thể hiểu.,,
+H08,A,A,postgresql-16.16-a4,104,66,904,A:643dd5b7da710a46e8c2b253a082ff176739594f2277abeb41fed6b3526bc8df,450,950,"ique constraint for a group of columns, write it as a table constraint with the column
+names separated by commas:
+CREATE TABLE example (
+a integer,
+b integer,
+c integer,
+UNIQUE (a, c)
+);
+This specifies that the combination of values in the indicated columns is unique across the whole table,
+though any one of the columns need not be (and ordinarily isn't) unique.
+You can assign your own name for a unique constraint, in the usual way:
+CREATE TABLE products (
+product_no integer CONSTRAINT must_be_d",253c9e7449015fdad745b5f0f3a984fde48a2b88a04006cfef11f0dcdbcf1570,coherence_evidence.md#h08-a,,1,Đề xuất: Bắt đầu giữa từ unique và kết thúc giữa tên constraint; ví dụ đầu đầy đủ.,,
+H08,B,B,postgresql-16.16-a4,104,66,904,B:92d5b820d39bc8b159bad1e10b737fd76a3d9a90f880b8c36426bfe9e7b96e6c,815,1306,"You can assign your own name for a unique constraint, in the usual way:
+CREATE TABLE products (
+product_no integer CONSTRAINT must_be_different UNIQUE,
+name text,
+price numeric
+);
+Adding a unique constraint will automatically create a unique B-tree index on the column or group of
+columns listed in the constraint. A uniqueness restriction covering only some rows cannot be written
+as a unique constraint, but it is possible to enforce such a restriction by creating a unique partial index.
+",253c9e7449015fdad745b5f0f3a984fde48a2b88a04006cfef11f0dcdbcf1570,coherence_evidence.md#h08-b,,2,"Đề xuất: Ví dụ UNIQUE và hệ quả index hoàn chỉnh, tự chứa.",,
+H08,C,B,postgresql-16.16-a4,104,66,904,B:92d5b820d39bc8b159bad1e10b737fd76a3d9a90f880b8c36426bfe9e7b96e6c,815,1306,"You can assign your own name for a unique constraint, in the usual way:
+CREATE TABLE products (
+product_no integer CONSTRAINT must_be_different UNIQUE,
+name text,
+price numeric
+);
+Adding a unique constraint will automatically create a unique B-tree index on the column or group of
+columns listed in the constraint. A uniqueness restriction covering only some rows cannot be written
+as a unique constraint, but it is possible to enforce such a restriction by creating a unique partial index.
+",253c9e7449015fdad745b5f0f3a984fde48a2b88a04006cfef11f0dcdbcf1570,coherence_evidence.md#h08-b,B,2,"Đề xuất: Ví dụ UNIQUE và hệ quả index hoàn chỉnh, tự chứa.",,
+H09,A,A,postgresql-16.16-a4,105,67,931,A:9caa16044b5a4105e38e86bb4c86eb0f7621d56cecd41ea4f0d79d8b10f99cab,450,950,"when developing applications that are
+intended to be portable.
+5.4.4. Primary Keys
+A primary key constraint indicates that a column, or group of columns, can be used as a unique
+identifier for rows in the table. This requires that the values be both unique and not null. So, the
+following two table definitions accept the same data:
+CREATE TABLE products (
+product_no integer UNIQUE NOT NULL,
+name text,
+price numeric
+);
+CREATE TABLE products (
+product_no integer PRIMARY KEY,
+name text,
+price numeri",a07b61635fb5a620348188caa63ad0d2499fe26d5d21b077e82e546530896a0c,coherence_evidence.md#h09-a,,1,"Đề xuất: Mở bằng câu tiếp nối, kết thúc giữa từ numeric; giải thích PK vẫn rõ.",,
+H09,B,B,postgresql-16.16-a4,105,67,931,B:c1ffade09f2e58e6c312ad2b66893ab8aaa2251954b349a6380e6db299c7063a,721,1217,"So, the
+following two table definitions accept the same data:
+CREATE TABLE products (
+product_no integer UNIQUE NOT NULL,
+name text,
+price numeric
+);
+CREATE TABLE products (
+product_no integer PRIMARY KEY,
+name text,
+price numeric
+);
+Primary keys can span more than one column; the syntax is similar to unique constraints:
+CREATE TABLE example (
+a integer,
+b integer,
+c integer,
+PRIMARY KEY (a, c)
+);
+Adding a primary key will automatically create a unique B-tree index on the column or group of
+",a07b61635fb5a620348188caa63ad0d2499fe26d5d21b077e82e546530896a0c,coherence_evidence.md#h09-b,,2,"Đề xuất: Hai ví dụ PRIMARY KEY và khóa ghép nguyên vẹn, ý tương đối độc lập.",,
+H09,C,B,postgresql-16.16-a4,105,67,931,B:c1ffade09f2e58e6c312ad2b66893ab8aaa2251954b349a6380e6db299c7063a,721,1217,"So, the
+following two table definitions accept the same data:
+CREATE TABLE products (
+product_no integer UNIQUE NOT NULL,
+name text,
+price numeric
+);
+CREATE TABLE products (
+product_no integer PRIMARY KEY,
+name text,
+price numeric
+);
+Primary keys can span more than one column; the syntax is similar to unique constraints:
+CREATE TABLE example (
+a integer,
+b integer,
+c integer,
+PRIMARY KEY (a, c)
+);
+Adding a primary key will automatically create a unique B-tree index on the column or group of
+",a07b61635fb5a620348188caa63ad0d2499fe26d5d21b077e82e546530896a0c,coherence_evidence.md#h09-b,B,2,"Đề xuất: Hai ví dụ PRIMARY KEY và khóa ghép nguyên vẹn, ý tương đối độc lập.",,
+H10,A,A,postgresql-16.16-a4,106,68,987,A:bcd6096cc56221937f90eeedb03b8b010af3d3578de2d6685556afe88d4053a9,900,1400,"erences the products table:
+CREATE TABLE orders (
+order_id integer PRIMARY KEY,
+product_no integer REFERENCES products (product_no),
+quantity integer
+);
+Now it is impossible to create orders with non-NULL product_no entries that do not appear in
+the products table.
+We say that in this situation the orders table is the referencing table and the products table is the
+referenced table. Similarly, there are referencing and referenced columns.
+You can also shorten the above command to:
+CREATE TABLE o",200f3caaadb644722f334f4ef087ecf9a3c521b35900575da7ea7a3d66535c64,coherence_evidence.md#h10-a,,1,Đề xuất: Mở đầu giữa từ references và kết thúc giữa lệnh SQL; ví dụ đầu đủ.,,
+H10,B,B,postgresql-16.16-a4,106,68,987,B:cce353e962fc4ad207b117999efbfce3aa4f97242edba8c0999a3cc1161b053e,834,1286,"So we define a foreign key constraint in the
+orders table that references the products table:
+CREATE TABLE orders (
+order_id integer PRIMARY KEY,
+product_no integer REFERENCES products (product_no),
+quantity integer
+);
+Now it is impossible to create orders with non-NULL product_no entries that do not appear in
+the products table.
+We say that in this situation the orders table is the referencing table and the products table is the
+referenced table. ",200f3caaadb644722f334f4ef087ecf9a3c521b35900575da7ea7a3d66535c64,coherence_evidence.md#h10-b,,2,"Đề xuất: Ví dụ FOREIGN KEY cùng diễn giải trọn vẹn, mở đầu bằng câu có chủ thể rõ.",,
+H10,C,B,postgresql-16.16-a4,106,68,987,B:cce353e962fc4ad207b117999efbfce3aa4f97242edba8c0999a3cc1161b053e,834,1286,"So we define a foreign key constraint in the
+orders table that references the products table:
+CREATE TABLE orders (
+order_id integer PRIMARY KEY,
+product_no integer REFERENCES products (product_no),
+quantity integer
+);
+Now it is impossible to create orders with non-NULL product_no entries that do not appear in
+the products table.
+We say that in this situation the orders table is the referencing table and the products table is the
+referenced table. ",200f3caaadb644722f334f4ef087ecf9a3c521b35900575da7ea7a3d66535c64,coherence_evidence.md#h10-b,B,2,"Đề xuất: Ví dụ FOREIGN KEY cùng diễn giải trọn vẹn, mở đầu bằng câu có chủ thể rõ.",,

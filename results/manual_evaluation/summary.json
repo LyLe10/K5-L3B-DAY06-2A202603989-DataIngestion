@@ -1,0 +1,223 @@
+{
+  "status": "USER_CONFIRMED_LABELS_IMPORTED_REPORT_AWAITS_REVIEW",
+  "selected_strategy": "B",
+  "selection_unchanged": true,
+  "manual": {
+    "A": {
+      "coherence": {
+        "n": 10,
+        "counts": {
+          "0": 0,
+          "1": 10,
+          "2": 0
+        },
+        "mean": 1.0
+      },
+      "metadata": {
+        "correct": 15,
+        "reviewed": 15
+      },
+      "grounding": {
+        "n": 5,
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 5
+        },
+        "mean": 2.0
+      },
+      "filter": {
+        "scope_compliant": 0,
+        "questions": 1,
+        "filter_applied": false
+      }
+    },
+    "B": {
+      "coherence": {
+        "n": 10,
+        "counts": {
+          "0": 0,
+          "1": 3,
+          "2": 7
+        },
+        "mean": 1.7
+      },
+      "metadata": {
+        "correct": 15,
+        "reviewed": 15
+      },
+      "grounding": {
+        "n": 5,
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 5
+        },
+        "mean": 2.0
+      },
+      "filter": {
+        "scope_compliant": 0,
+        "questions": 1,
+        "filter_applied": false
+      }
+    },
+    "C": {
+      "coherence": {
+        "n": 10,
+        "counts": {
+          "0": 0,
+          "1": 3,
+          "2": 7
+        },
+        "mean": 1.7
+      },
+      "metadata": {
+        "correct": 15,
+        "reviewed": 15
+      },
+      "grounding": {
+        "n": 5,
+        "counts": {
+          "0": 0,
+          "1": 0,
+          "2": 5
+        },
+        "mean": 2.0
+      },
+      "filter": {
+        "scope_compliant": 1,
+        "questions": 1,
+        "filter_applied": true
+      }
+    }
+  },
+  "retrieval": [
+    {
+      "split": "dev",
+      "strategy": "A",
+      "run": "dev-002",
+      "questions": 15,
+      "exact_hit1_n": 5,
+      "exact_hit1_N": 15,
+      "exact_evidence_hit3_n": 7,
+      "exact_evidence_hit3_N": 15,
+      "chunk_count": 246
+    },
+    {
+      "split": "dev",
+      "strategy": "B",
+      "run": "dev-002",
+      "questions": 15,
+      "exact_hit1_n": 7,
+      "exact_hit1_N": 15,
+      "exact_evidence_hit3_n": 10,
+      "exact_evidence_hit3_N": 15,
+      "chunk_count": 264
+    },
+    {
+      "split": "dev",
+      "strategy": "C",
+      "run": "dev-002",
+      "questions": 15,
+      "exact_hit1_n": 7,
+      "exact_hit1_N": 15,
+      "exact_evidence_hit3_n": 10,
+      "exact_evidence_hit3_N": 15,
+      "chunk_count": 264
+    },
+    {
+      "split": "test",
+      "strategy": "A",
+      "run": "test-001",
+      "questions": 5,
+      "exact_hit1_n": 4,
+      "exact_hit1_N": 5,
+      "exact_evidence_hit3_n": 5,
+      "exact_evidence_hit3_N": 5,
+      "chunk_count": 246
+    },
+    {
+      "split": "test",
+      "strategy": "B",
+      "run": "test-001",
+      "questions": 5,
+      "exact_hit1_n": 4,
+      "exact_hit1_N": 5,
+      "exact_evidence_hit3_n": 5,
+      "exact_evidence_hit3_N": 5,
+      "chunk_count": 264
+    },
+    {
+      "split": "test",
+      "strategy": "C",
+      "run": "test-001",
+      "questions": 5,
+      "exact_hit1_n": 4,
+      "exact_hit1_N": 5,
+      "exact_evidence_hit3_n": 5,
+      "exact_evidence_hit3_N": 5,
+      "chunk_count": 264
+    }
+  ],
+  "run_history": [
+    {
+      "file": "data/local/lab_benchmark/dev/dev-001/raw_run.json",
+      "sha256": "ed694cd3105b65d32bc80f9476154227cce2040a3b4f40685a66a65b60735f6b",
+      "status": "INCOMPLETE",
+      "traces": 0,
+      "error": {
+        "type": "OperationalError",
+        "sqlstate": null,
+        "stage": "RETRIEVAL",
+        "message": "RUN_FAILED_NO_RETRY"
+      },
+      "included_in_report": false
+    },
+    {
+      "file": "data/local/lab_benchmark/dev/dev-002/raw_run.json",
+      "sha256": "2e782e98125f7fdc4384fa12e679ec00b6effeedcb6d06415f5be5cb0a9d89d0",
+      "status": "COMPLETE",
+      "traces": 45,
+      "error": null,
+      "included_in_report": true
+    },
+    {
+      "file": "data/local/lab_benchmark/test/test-001/raw_run.json",
+      "sha256": "b032cff16d89ff6d02170db74d7420588bbae0edfcfafbef6f67ee34c65831b3",
+      "status": "COMPLETE",
+      "traces": 15,
+      "error": null,
+      "included_in_report": true
+    }
+  ],
+  "confirmation": {
+    "basis": "User explicitly confirmed the four proposal files in the current conversation before import.",
+    "reviewer_name_supplied": false,
+    "review_timestamp_supplied": false,
+    "proposal_rationale_prefix_retained": true
+  },
+  "sources": [
+    {
+      "file": "review_proposals/coherence_scoring_proposal.csv",
+      "sha256": "e737a761b7d4a2834229ce6140e14dcf0c65388b291312ebb18a42c4cd8d4790"
+    },
+    {
+      "file": "review_proposals/metadata_scoring_proposal.csv",
+      "sha256": "1b9b0b41f4f3bba0f0bed04732f7d744a302676eabbe09fc235649af074beb5c"
+    },
+    {
+      "file": "review_proposals/grounding_scoring_proposal.csv",
+      "sha256": "83f47a92bd1179c1bb3e936614ab2952adc24b04a78427b6c4ff1f4d194a1b6a"
+    },
+    {
+      "file": "review_proposals/filter_review_scoring_proposal.csv",
+      "sha256": "e428b6b4c8e65d9c02aec01c7f60133b31239a65f1a31b67fa0766e4467e2664"
+    }
+  ],
+  "notes": [
+    "Manual filter.scope_compliant measures all top-3 hits against requested scope. A/B do not apply a filter; their enforcement metric is N/A, not a filter failure.",
+    "Coherence C reuses the same B chunks and confirmed labels.",
+    "No manual adjudication changed original exact retrieval metrics.",
+    "Historical extraction provenance.json remains the original PREPARED snapshot; see finalization_validation.json for this import."
+  ]
+}

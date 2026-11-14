@@ -1,0 +1,11 @@
+anchor_id,source_id,physical_page,offset_0based,normalized_char_count,selection_rule,chunk_rule
+H01,postgresql-16.16-a4,97,1721,3443,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H02,postgresql-16.16-a4,98,1355,2710,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H03,postgresql-16.16-a4,99,1243,2487,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H04,postgresql-16.16-a4,100,1693,3386,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H05,postgresql-16.16-a4,101,1252,2504,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H06,postgresql-16.16-a4,102,1126,2252,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H07,postgresql-16.16-a4,103,1204,2408,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H08,postgresql-16.16-a4,104,904,1808,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H09,postgresql-16.16-a4,105,931,1862,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
+H10,postgresql-16.16-a4,106,987,1974,first 10 selected pages; floor(length/2),start<=offset<end; smallest start_char then chunk_id; C reuses B
