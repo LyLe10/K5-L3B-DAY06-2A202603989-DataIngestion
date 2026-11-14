@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "migrations": [
+    {
+      "version": 1,
+      "name": "0001_day6_ingestion.sql",
+      "sha256": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6"
+    }
+  ]
+}
