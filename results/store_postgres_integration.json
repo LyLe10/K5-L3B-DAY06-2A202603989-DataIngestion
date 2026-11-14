@@ -1,0 +1,473 @@
+{
+  "started_at": "2026-11-14T07:56:05.626136+00:00",
+  "passed": true,
+  "errors": [],
+  "production_before": [
+    "day6_lab",
+    "on",
+    "7707847059457269799",
+    0,
+    0,
+    0,
+    "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+    [
+      {
+        "name": "0001_day6_ingestion.sql",
+        "version": 1,
+        "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+        "applied_at": "2026-11-14T07:05:59.656279+00:00",
+        "catalog_sha256": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+      }
+    ]
+  ],
+  "test_identity": [
+    "day6_lab",
+    "tester",
+    "160016",
+    "7707931395030798375",
+    null
+  ],
+  "migration_sha256": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+  "migration_sqlstate": "00000",
+  "pytest_exit_code": 0,
+  "tests": [
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_first_sync_profile_and_vector_round_trip",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.18595720899975277,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_registration_replay_and_immutability",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.16099210399988806,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_replay_preserves_rows_vectors_xmin_and_completed_at",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.3198361609975109,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_changed_vector_with_same_snapshot_id",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.8634387540005264,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_changed_context_updates_retained_provenance[metadata]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.3325188549970335,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_changed_context_updates_retained_provenance[text]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.3713260909971723,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_changed_context_updates_retained_provenance[provenance]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.3473200150001503,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_expected_count_reduction_and_stale_deletion",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.3331018999997468,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_namespace_isolation",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.8696146629990835,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_sql_parameter_binding_and_on_conflict",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.2694246380015102,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[profile]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.08193443799973466,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[ledger]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.1162169700000959,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[chunk]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.09655885699976352,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[delete]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.14110516799701145,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[complete]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.15163960400241194,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[constraints]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.17897714200080372,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_real_transaction_rollback_at_each_stage[commit]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.1787358529982157,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_rollback_restores_existing_snapshot",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.35034278799867025,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_deferred_constraints_reject_commit_and_restore_data[fk]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.24311986899920157,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_deferred_constraints_reject_commit_and_restore_data[completion]",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.20231356500153197,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_ab_compatibility_and_c_refusal",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.8061205789999804,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_same_namespace_concurrent_writers_serialize",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.4350760649977019,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_different_namespace_writers_do_not_block",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.31442813700050465,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_lock_timeout_rolls_back_without_retry",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 5.310116559001472,
+      "error": null
+    },
+    {
+      "nodeid": "starter/tests/postgres_store_cases.py::test_catalog_ledger_checksum_and_row_counts",
+      "phase": "call",
+      "outcome": "passed",
+      "seconds": 0.029332352998608258,
+      "error": null
+    }
+  ],
+  "summary": {
+    "PASS": 25,
+    "FAIL": 0,
+    "BLOCKED": 0
+  },
+  "evidence": [
+    {
+      "name": "first_sync",
+      "dataset_id": "pg43b3-48085f75b5-test_first_sync_profile_and_vector_round_trip",
+      "profile_id": "018960b5477201af8f004f94d6529cafd78064f8c25fda3b4c9b1f89886da30a",
+      "strategy": "A",
+      "snapshot_id": "fe1a60e1ef2af79c7da5c8eeacdd34d6c506c0b83e96cbcdb13275fe8a0d4233",
+      "expected_count": 30,
+      "replayed": false,
+      "written_rows": 30,
+      "deleted_rows": 0,
+      "completed_at": "2026-11-14 07:56:06.687586+00:00",
+      "vector_dimension": 384,
+      "vector_round_trip_exact": true
+    },
+    {
+      "name": "immutable_profile",
+      "sqlstate": "P0001",
+      "operation": "UPDATE"
+    },
+    {
+      "name": "immutable_profile",
+      "sqlstate": "P0001",
+      "operation": "DELETE"
+    },
+    {
+      "name": "replay",
+      "completed_at_unchanged": true,
+      "chunk_xmin_unchanged": true,
+      "profile_xmin_unchanged": true,
+      "dataset_id": "pg43b3-48085f75b5-test_replay_preserves_rows_vectors_xmin_and_completed_at",
+      "profile_id": "693062ad2749783ddbfc8469bc1d0ed7849a016e46719282eb032a25d9170bd0",
+      "strategy": "A",
+      "snapshot_id": "2f1792fff1c6cb93a44b1b3ec02355aa20f6e9498418972c00b30c3d3c41c9a1",
+      "expected_count": 30,
+      "replayed": true,
+      "written_rows": 0,
+      "deleted_rows": 0
+    },
+    {
+      "name": "changed_vector",
+      "same_snapshot_id": true,
+      "changed_rows": 1,
+      "stored_vector_verified": true
+    },
+    {
+      "name": "changed_metadata",
+      "retained_ids": 30,
+      "dataset_id": "pg43b3-48085f75b5-test_changed_context_updates_retained_provenance-metadata-",
+      "profile_id": "c45233aa0bd4c8a2ff32cc19587a1fa2d4c959d7f59ac85c2f6d1ff8c81c1d7c",
+      "strategy": "A",
+      "snapshot_id": "0b9fb28963a7a386af899d68a4d256d8acb0635096507804470d408559ed803a",
+      "expected_count": 30,
+      "replayed": false,
+      "written_rows": 30,
+      "deleted_rows": 0
+    },
+    {
+      "name": "changed_text",
+      "retained_ids": 29,
+      "dataset_id": "pg43b3-48085f75b5-test_changed_context_updates_retained_provenance-text-",
+      "profile_id": "47c49db57870485573b1a443f61a2bc27da800ac2d78e4b4f2f48723228fc443",
+      "strategy": "A",
+      "snapshot_id": "143a2fbeaf97c5d2ee2f01d6f525ac63f0dbd8f0504930f3eb0207b87c4b3796",
+      "expected_count": 30,
+      "replayed": false,
+      "written_rows": 30,
+      "deleted_rows": 1
+    },
+    {
+      "name": "changed_provenance",
+      "retained_ids": 30,
+      "dataset_id": "pg43b3-48085f75b5-test_changed_context_updates_retained_provenance-provenance-",
+      "profile_id": "159befd224334c4cc55e839c43b9e490215a5e05d3bb95db5e7222a6df355553",
+      "strategy": "A",
+      "snapshot_id": "e0791617267b452ea5fbcf20d34ff0260e5a603be20dab130cb5e3b2dfec3885",
+      "expected_count": 30,
+      "replayed": false,
+      "written_rows": 30,
+      "deleted_rows": 0
+    },
+    {
+      "name": "count_reduction",
+      "from_expected": 31,
+      "to_expected": 30,
+      "actual_count": 30,
+      "dataset_id": "pg43b3-48085f75b5-test_expected_count_reduction_and_stale_deletion",
+      "profile_id": "d95cdac52af409af018b71468d487c9c2cb611b5784a03a1c7181dde5eaac3a2",
+      "strategy": "A",
+      "snapshot_id": "db9e699ac459ed4ad707a6a2db131cd24355ffa754a6d8cc3d29ff49d9c7f118",
+      "expected_count": 30,
+      "replayed": false,
+      "written_rows": 30,
+      "deleted_rows": 1
+    },
+    {
+      "name": "namespace_isolation",
+      "other_dataset_other_profile_other_strategy_unchanged": true
+    },
+    {
+      "name": "binding",
+      "hostile_source_stored_as_data": true,
+      "public_schema_unchanged": true
+    },
+    {
+      "name": "rollback_profile",
+      "sqlstate": "22012",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_ledger",
+      "sqlstate": "22012",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_chunk",
+      "sqlstate": "22012",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_delete",
+      "sqlstate": "22012",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_complete",
+      "sqlstate": "22012",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_constraints",
+      "sqlstate": "22012",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_commit",
+      "sqlstate": "P0001",
+      "profile_absent": true,
+      "ledger_absent": true,
+      "chunks_absent": true
+    },
+    {
+      "name": "rollback_existing",
+      "sqlstate": "22012",
+      "completed_at_rows_vectors_xmin_restored": true
+    },
+    {
+      "name": "deferred_fk",
+      "sqlstate": "23503",
+      "failure_at_commit": true,
+      "data_restored": true
+    },
+    {
+      "name": "deferred_completion",
+      "sqlstate": "P0001",
+      "failure_at_commit": true,
+      "data_restored": true
+    },
+    {
+      "name": "compatibility",
+      "mismatch_blocked": true,
+      "C_rows": 0
+    },
+    {
+      "name": "concurrency_same_namespace",
+      "observed_pg_advisory_wait": true,
+      "serialized": true,
+      "last_writer_vector_verified": true
+    },
+    {
+      "name": "concurrency_different_namespace",
+      "other_writer_completed_while_A_locked": true,
+      "seconds": 0.1307024330017157
+    },
+    {
+      "name": "concurrency_timeout",
+      "sqlstate": "55P03",
+      "seconds": 5.091583403998811,
+      "data_unchanged": true
+    },
+    {
+      "name": "final_catalog",
+      "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "catalog_fingerprint": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+      "counts": [
+        18,
+        21,
+        630
+      ],
+      "all_snapshots_complete": true
+    }
+  ],
+  "production_after": [
+    "day6_lab",
+    "on",
+    "7707847059457269799",
+    0,
+    0,
+    0,
+    "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+    [
+      {
+        "name": "0001_day6_ingestion.sql",
+        "version": 1,
+        "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+        "applied_at": "2026-11-14T07:05:59.656279+00:00",
+        "catalog_sha256": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+      }
+    ]
+  ],
+  "production_unchanged": true,
+  "total_seconds": 13.895679201999883,
+  "finished_at": "2026-11-14T07:56:19.521853+00:00",
+  "integrity": {
+    "changed_existing_files": [],
+    "new_files": [
+      "results/store_postgres_integration.json",
+      "starter/scripts/check_store_postgres.py",
+      "starter/tests/postgres_store_cases.py",
+      "results/store_postgres_integration.md"
+    ],
+    "local_inventory_unchanged": true,
+    "local_file_count": 26462,
+    "git_refs_unchanged": true
+  },
+  "full_pytest": {
+    "runs": 1,
+    "run_after_integration_pass": true,
+    "passed": 263,
+    "subtests_passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 15.14,
+    "environment": "baseline .venv",
+    "explicit_postgres_cases_run_separately": 25
+  },
+  "container": {
+    "name": "day6-cp43b3-isolated-20261114",
+    "id": "2db0dce083c01d57e5fcc927abae006a864a9e37751dc4935885d1567a10ed5c",
+    "image_id": "sha256:484e838076e04939d27d3e176e91c86eea96236126023be8d3059761122e579f",
+    "host": "127.0.0.1",
+    "port": 55434,
+    "pgdata_tmpfs": true,
+    "shared_mounts": [],
+    "stopped_after_tests": true
+  }
+}

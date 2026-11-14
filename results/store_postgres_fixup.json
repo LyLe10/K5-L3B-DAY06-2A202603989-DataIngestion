@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-11-14T08:51:19.450612+00:00",
+  "passed": false,
+  "errors": [
+    {
+      "type": "RaiseException",
+      "message": "Expected UTF8 day6_lab on PostgreSQL 16\nCONTEXT:  PL/pgSQL function inline_code_block line 12 at RAISE",
+      "sqlstate": "P0001"
+    }
+  ],
+  "disposable_target": {
+    "container": "day6-store-test-fixup-20261114",
+    "container_id": "65f26a073302538c18a7e33bfe7fa7c5ed5fd0eb9d7351a27de685ea0237bec9",
+    "cluster": "7707947054776619053"
+  },
+  "production_before": [
+    "day6_lab",
+    "on",
+    "7707847059457269799",
+    1,
+    2,
+    510,
+    "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+    [
+      {
+        "name": "0001_day6_ingestion.sql",
+        "version": 1,
+        "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+        "applied_at": "2026-11-14T07:05:59.656279+00:00",
+        "catalog_sha256": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+      }
+    ]
+  ],
+  "production_after": [
+    "day6_lab",
+    "on",
+    "7707847059457269799",
+    1,
+    2,
+    510,
+    "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+    [
+      {
+        "name": "0001_day6_ingestion.sql",
+        "version": 1,
+        "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+        "applied_at": "2026-11-14T07:05:59.656279+00:00",
+        "catalog_sha256": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+      }
+    ]
+  ],
+  "production_unchanged": true,
+  "total_seconds": 0.263186128999223,
+  "finished_at": "2026-11-14T08:51:19.713819+00:00"
+}
