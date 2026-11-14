@@ -51,3 +51,8 @@ Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **1
 Xem [hướng dẫn corpus](data/README.md), [manifest](data/manifest.json) và [JSON Schema](data/manifest.schema.json).
 Chạy từ root: `python starter/scripts/check_corpus.py --manifest data/manifest.json`.
 Corpus hiện dùng PostgreSQL 16.16 PDF A4: chọn 40 trang vật lý (97–132, 148–151). Xem `results/corpus_validation.md` để đối chiếu báo cáo kiểm tra; PDF và text chỉ lưu local, không đưa vào Git.
+
+## Document Ingestion & Chunking (giai đoạn 3)
+
+Xem [thiết kế và lệnh chạy](docs/ingestion_chunking.md). Chạy từ root: `python starter/scripts/check_ingestion_chunking.py` và `python -m pytest -q`.
+Báo cáo thực tế: [ingestion/chunking](results/ingestion_chunking.md). Chunk chứa text chỉ lưu trong `data/local/stage3/chunks/`; bước này chưa dùng embedding, database hay benchmark.

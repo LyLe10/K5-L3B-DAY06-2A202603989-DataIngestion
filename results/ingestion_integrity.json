@@ -1,0 +1,15 @@
+{
+  "protected_files_unchanged": {
+    "starter/src/models.py": true,
+    "starter/src/run.py": true,
+    "data/manifest.json": true,
+    "data/manifest.schema.json": true,
+    "data/local/raw/postgresql-16-A4.pdf": true
+  },
+  "public_function_signatures_unchanged": {
+    "load_pdf": true,
+    "normalize_text": true,
+    "fixed_size": true,
+    "by_paragraph": true
+  }
+}
