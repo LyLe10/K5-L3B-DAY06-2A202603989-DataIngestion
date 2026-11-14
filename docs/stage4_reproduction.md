@@ -2,6 +2,12 @@
 
 Stage 4 hiện đã hoàn tất embedding/schema/ingestion; retrieval và benchmark chưa triển khai. Hướng dẫn này không yêu cầu chạy lại ingestion trên database chính. Không đưa `.env`, venv, PDF, model hoặc vector cache vào Git.
 
+## Credential lab và phạm vi sử dụng
+
+Credential trong [starter/.env.example](../starter/.env.example) là credential lab mặc định công khai, chỉ dùng cho PostgreSQL local cô lập. Không sử dụng lại cho production, môi trường chia sẻ hoặc dịch vụ public. Port bind `127.0.0.1` giới hạn truy cập qua cổng được publish, nhưng không thay thế các biện pháp bảo vệ database, phân quyền và kiểm soát truy cập.
+
+Khi triển khai môi trường khác, cần cấu hình credential riêng và đồng bộ cấu hình khởi tạo database với `DATABASE_URL` cùng các client liên quan; giữ credential thật ngoài Git. Thay `POSTGRES_PASSWORD` trong Compose không tự thay mật khẩu role PostgreSQL trên volume đã khởi tạo. Với database hiện có, việc đổi mật khẩu cần quy trình riêng được phê duyệt; không reset hoặc xóa volume để xử lý cấu hình.
+
 ## Python và dependency lock
 
 Môi trường đã kiểm chứng: **WSL/Linux x86_64, CPython 3.12.3**, CPU. Dùng môi trường mới, không sửa venv baseline:

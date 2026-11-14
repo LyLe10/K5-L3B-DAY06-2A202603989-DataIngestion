@@ -12,7 +12,7 @@ SHA-256 được tính trực tiếp từ bytes của file SQL **sau khi ghi b�
 04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6
 ```
 
-Diff thực tế hai file: [schema_integration.final.diff](schema_integration.final.diff). `schema_integration.proposed.diff` giữ nguyên để lưu đề xuất đã được duyệt. Báo cáo chuẩn bị `schema_migration.md` là snapshot lịch sử trước lần sửa này; registry và báo cáo hiện tại ghi checksum mới.
+Bản sửa lịch sử gồm ép `t.tgenabled::text` trong [Migration 0001](../starter/migrations/0001_day6_ingestion.sql) và cập nhật SHA-256 tương ứng trong [checksum registry](../starter/migrations/manifest.json). Các file `.diff` là artifact kiểm toán local, không thuộc submission và không cần để tái lập bản migration hiện tại. Báo cáo chuẩn bị `schema_migration.md` là snapshot lịch sử trước lần sửa này; registry và báo cáo hiện tại ghi checksum mới.
 
 ## Môi trường cô lập và an toàn database
 
