@@ -1,0 +1,15 @@
+{
+  "endpoint": "127.0.0.1:55433",
+  "identity": [
+    "day6_lab",
+    "16.16 (Debian 16.16-1.pgdg12+1)",
+    "160016",
+    "on",
+    "7707847059457269799",
+    "0.8.7"
+  ],
+  "ledger": [],
+  "profile_rows": 0,
+  "read_only": true,
+  "diagnostic_note": "Initial exact display-version assertion rejected Debian package suffix; server_version_num=160016 confirms 16.16. No writes or sync retry."
+}

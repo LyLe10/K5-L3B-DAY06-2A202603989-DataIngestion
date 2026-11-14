@@ -1,0 +1,12 @@
+{
+  "existing_files_sha256_unchanged": true,
+  "changed_existing_files": [],
+  "local_inventory_unchanged": true,
+  "local_files_before": 26964,
+  "local_files_after": 26964,
+  "refs_unchanged": true,
+  "added_files": [
+    "results/full_corpus_apply.json",
+    "starter/scripts/apply_full_corpus.py"
+  ]
+}

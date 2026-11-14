@@ -1,0 +1,582 @@
+{
+  "started_at": "2026-11-14T07:05:53.416742+00:00",
+  "status": "SUCCESS",
+  "target": {
+    "host": "127.0.0.1",
+    "port": 55433,
+    "database": "day6_lab",
+    "container": "day6_student_starter-postgres-1"
+  },
+  "commit_attempted": true,
+  "commit_confirmed": true,
+  "migration_sha256": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+  "precheck": {
+    "returncode": 0,
+    "stdout": "{\"user\": \"day6\", \"schema\": null, \"cluster\": \"7707847059457269799\", \"version\": \"16.16 (Debian 16.16-1.pgdg12+1)\", \"database\": \"day6_lab\", \"encoding\": \"UTF8\", \"can_create\": true, \"version_num\": \"160016\", \"vector_version\": \"0.8.7\", \"migration_tables\": 0}\n08cb19f8d3ec7163304728e3af473001158efdceeb83f7ebb29fbbfb1741cf40\n",
+    "stderr": "",
+    "sqlstate": "00000"
+  },
+  "outside_catalog_before": "08cb19f8d3ec7163304728e3af473001158efdceeb83f7ebb29fbbfb1741cf40",
+  "write_transaction_started_at": "2026-11-14T07:05:59.514924+00:00",
+  "transaction": {
+    "returncode": 0,
+    "stdout": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6\n\nPRECOMMIT:{\"views\": [\"compatible_snapshots\"], \"ledger\": [{\"name\": \"0001_day6_ingestion.sql\", \"version\": 1, \"checksum\": \"04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6\", \"applied_at\": \"2026-11-14T07:05:59.656279+00:00\", \"catalog_sha256\": \"209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55\"}], \"schema\": \"day6_ingestion\", \"tables\": [\"chunks\", \"embedding_profiles\", \"schema_migrations\", \"strategy_snapshots\"], \"indexes\": [{\"name\": \"chunks_page_idx\", \"table\": \"chunks\", \"definition\": \"CREATE INDEX chunks_page_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, document_id, physical_page)\"}, {\"name\": \"chunks_pkey\", \"table\": \"chunks\", \"definition\": \"CREATE UNIQUE INDEX chunks_pkey ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, chunk_id)\"}, {\"name\": \"chunks_section_idx\", \"table\": \"chunks\", \"definition\": \"CREATE INDEX chunks_section_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, section)\"}, {\"name\": \"embedding_profiles_pkey\", \"table\": \"embedding_profiles\", \"definition\": \"CREATE UNIQUE INDEX embedding_profiles_pkey ON day6_ingestion.embedding_profiles USING btree (profile_id)\"}, {\"name\": \"schema_migrations_name_key\", \"table\": \"schema_migrations\", \"definition\": \"CREATE UNIQUE INDEX schema_migrations_name_key ON day6_ingestion.schema_migrations USING btree (name)\"}, {\"name\": \"schema_migrations_pkey\", \"table\": \"schema_migrations\", \"definition\": \"CREATE UNIQUE INDEX schema_migrations_pkey ON day6_ingestion.schema_migrations USING btree (version)\"}, {\"name\": \"strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE UNIQUE INDEX strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy, snapshot_id, manifest_sha256, corpus_sha256)\"}, {\"name\": \"strategy_snapshots_pkey\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE UNIQUE INDEX strategy_snapshots_pkey ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy)\"}], \"triggers\": [{\"name\": \"chunks_complete\", \"table\": \"chunks\", \"definition\": \"CREATE CONSTRAINT TRIGGER chunks_complete AFTER INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()\"}, {\"name\": \"chunks_namespace\", \"table\": \"chunks\", \"definition\": \"CREATE TRIGGER chunks_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()\"}, {\"name\": \"chunks_no_truncate\", \"table\": \"chunks\", \"definition\": \"CREATE TRIGGER chunks_no_truncate BEFORE TRUNCATE ON day6_ingestion.chunks FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"migrations_immutable\", \"table\": \"schema_migrations\", \"definition\": \"CREATE TRIGGER migrations_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.schema_migrations FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"migrations_no_truncate\", \"table\": \"schema_migrations\", \"definition\": \"CREATE TRIGGER migrations_no_truncate BEFORE TRUNCATE ON day6_ingestion.schema_migrations FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"profiles_immutable\", \"table\": \"embedding_profiles\", \"definition\": \"CREATE TRIGGER profiles_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.embedding_profiles FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"profiles_no_truncate\", \"table\": \"embedding_profiles\", \"definition\": \"CREATE TRIGGER profiles_no_truncate BEFORE TRUNCATE ON day6_ingestion.embedding_profiles FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"snapshots_complete\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE CONSTRAINT TRIGGER snapshots_complete AFTER INSERT OR UPDATE ON day6_ingestion.strategy_snapshots DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()\"}, {\"name\": \"snapshots_namespace\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE TRIGGER snapshots_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.strategy_snapshots FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()\"}, {\"name\": \"snapshots_no_truncate\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE TRIGGER snapshots_no_truncate BEFORE TRUNCATE ON day6_ingestion.strategy_snapshots FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}], \"functions\": [\"assert_snapshot_complete\", \"catalog_fingerprint\", \"guard_namespace\", \"namespace_lock_key\", \"reject_mutation\"], \"row_counts\": {\"chunks\": 0, \"embedding_profiles\": 0, \"strategy_snapshots\": 0}, \"catalog_fingerprint\": \"209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55\"}\nTXID:745\n",
+    "stderr": "",
+    "sqlstate": "00000"
+  },
+  "committed_at_client_utc": "2026-11-14T07:05:59.919144+00:00",
+  "transaction_result": "COMMIT successful; SQLSTATE 00000",
+  "precommit_catalog": {
+    "views": [
+      "compatible_snapshots"
+    ],
+    "ledger": [
+      {
+        "name": "0001_day6_ingestion.sql",
+        "version": 1,
+        "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+        "applied_at": "2026-11-14T07:05:59.656279+00:00",
+        "catalog_sha256": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+      }
+    ],
+    "schema": "day6_ingestion",
+    "tables": [
+      "chunks",
+      "embedding_profiles",
+      "schema_migrations",
+      "strategy_snapshots"
+    ],
+    "indexes": [
+      {
+        "name": "chunks_page_idx",
+        "table": "chunks",
+        "definition": "CREATE INDEX chunks_page_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, document_id, physical_page)"
+      },
+      {
+        "name": "chunks_pkey",
+        "table": "chunks",
+        "definition": "CREATE UNIQUE INDEX chunks_pkey ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, chunk_id)"
+      },
+      {
+        "name": "chunks_section_idx",
+        "table": "chunks",
+        "definition": "CREATE INDEX chunks_section_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, section)"
+      },
+      {
+        "name": "embedding_profiles_pkey",
+        "table": "embedding_profiles",
+        "definition": "CREATE UNIQUE INDEX embedding_profiles_pkey ON day6_ingestion.embedding_profiles USING btree (profile_id)"
+      },
+      {
+        "name": "schema_migrations_name_key",
+        "table": "schema_migrations",
+        "definition": "CREATE UNIQUE INDEX schema_migrations_name_key ON day6_ingestion.schema_migrations USING btree (name)"
+      },
+      {
+        "name": "schema_migrations_pkey",
+        "table": "schema_migrations",
+        "definition": "CREATE UNIQUE INDEX schema_migrations_pkey ON day6_ingestion.schema_migrations USING btree (version)"
+      },
+      {
+        "name": "strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key",
+        "table": "strategy_snapshots",
+        "definition": "CREATE UNIQUE INDEX strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy, snapshot_id, manifest_sha256, corpus_sha256)"
+      },
+      {
+        "name": "strategy_snapshots_pkey",
+        "table": "strategy_snapshots",
+        "definition": "CREATE UNIQUE INDEX strategy_snapshots_pkey ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy)"
+      }
+    ],
+    "triggers": [
+      {
+        "name": "chunks_complete",
+        "table": "chunks",
+        "definition": "CREATE CONSTRAINT TRIGGER chunks_complete AFTER INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()"
+      },
+      {
+        "name": "chunks_namespace",
+        "table": "chunks",
+        "definition": "CREATE TRIGGER chunks_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()"
+      },
+      {
+        "name": "chunks_no_truncate",
+        "table": "chunks",
+        "definition": "CREATE TRIGGER chunks_no_truncate BEFORE TRUNCATE ON day6_ingestion.chunks FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "migrations_immutable",
+        "table": "schema_migrations",
+        "definition": "CREATE TRIGGER migrations_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.schema_migrations FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "migrations_no_truncate",
+        "table": "schema_migrations",
+        "definition": "CREATE TRIGGER migrations_no_truncate BEFORE TRUNCATE ON day6_ingestion.schema_migrations FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "profiles_immutable",
+        "table": "embedding_profiles",
+        "definition": "CREATE TRIGGER profiles_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.embedding_profiles FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "profiles_no_truncate",
+        "table": "embedding_profiles",
+        "definition": "CREATE TRIGGER profiles_no_truncate BEFORE TRUNCATE ON day6_ingestion.embedding_profiles FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "snapshots_complete",
+        "table": "strategy_snapshots",
+        "definition": "CREATE CONSTRAINT TRIGGER snapshots_complete AFTER INSERT OR UPDATE ON day6_ingestion.strategy_snapshots DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()"
+      },
+      {
+        "name": "snapshots_namespace",
+        "table": "strategy_snapshots",
+        "definition": "CREATE TRIGGER snapshots_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.strategy_snapshots FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()"
+      },
+      {
+        "name": "snapshots_no_truncate",
+        "table": "strategy_snapshots",
+        "definition": "CREATE TRIGGER snapshots_no_truncate BEFORE TRUNCATE ON day6_ingestion.strategy_snapshots FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      }
+    ],
+    "functions": [
+      "assert_snapshot_complete",
+      "catalog_fingerprint",
+      "guard_namespace",
+      "namespace_lock_key",
+      "reject_mutation"
+    ],
+    "row_counts": {
+      "chunks": 0,
+      "embedding_profiles": 0,
+      "strategy_snapshots": 0
+    },
+    "catalog_fingerprint": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+  },
+  "postcommit": {
+    "returncode": 0,
+    "stdout": "{\"user\": \"day6\", \"schema\": \"day6_ingestion\", \"cluster\": \"7707847059457269799\", \"version\": \"16.16 (Debian 16.16-1.pgdg12+1)\", \"database\": \"day6_lab\", \"encoding\": \"UTF8\", \"can_create\": true, \"version_num\": \"160016\", \"vector_version\": \"0.8.7\", \"migration_tables\": 1}\n{\"views\": [\"compatible_snapshots\"], \"ledger\": [{\"name\": \"0001_day6_ingestion.sql\", \"version\": 1, \"checksum\": \"04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6\", \"applied_at\": \"2026-11-14T07:05:59.656279+00:00\", \"catalog_sha256\": \"209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55\"}], \"schema\": \"day6_ingestion\", \"tables\": [\"chunks\", \"embedding_profiles\", \"schema_migrations\", \"strategy_snapshots\"], \"indexes\": [{\"name\": \"chunks_page_idx\", \"table\": \"chunks\", \"definition\": \"CREATE INDEX chunks_page_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, document_id, physical_page)\"}, {\"name\": \"chunks_pkey\", \"table\": \"chunks\", \"definition\": \"CREATE UNIQUE INDEX chunks_pkey ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, chunk_id)\"}, {\"name\": \"chunks_section_idx\", \"table\": \"chunks\", \"definition\": \"CREATE INDEX chunks_section_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, section)\"}, {\"name\": \"embedding_profiles_pkey\", \"table\": \"embedding_profiles\", \"definition\": \"CREATE UNIQUE INDEX embedding_profiles_pkey ON day6_ingestion.embedding_profiles USING btree (profile_id)\"}, {\"name\": \"schema_migrations_name_key\", \"table\": \"schema_migrations\", \"definition\": \"CREATE UNIQUE INDEX schema_migrations_name_key ON day6_ingestion.schema_migrations USING btree (name)\"}, {\"name\": \"schema_migrations_pkey\", \"table\": \"schema_migrations\", \"definition\": \"CREATE UNIQUE INDEX schema_migrations_pkey ON day6_ingestion.schema_migrations USING btree (version)\"}, {\"name\": \"strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE UNIQUE INDEX strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy, snapshot_id, manifest_sha256, corpus_sha256)\"}, {\"name\": \"strategy_snapshots_pkey\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE UNIQUE INDEX strategy_snapshots_pkey ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy)\"}], \"triggers\": [{\"name\": \"chunks_complete\", \"table\": \"chunks\", \"definition\": \"CREATE CONSTRAINT TRIGGER chunks_complete AFTER INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()\"}, {\"name\": \"chunks_namespace\", \"table\": \"chunks\", \"definition\": \"CREATE TRIGGER chunks_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()\"}, {\"name\": \"chunks_no_truncate\", \"table\": \"chunks\", \"definition\": \"CREATE TRIGGER chunks_no_truncate BEFORE TRUNCATE ON day6_ingestion.chunks FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"migrations_immutable\", \"table\": \"schema_migrations\", \"definition\": \"CREATE TRIGGER migrations_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.schema_migrations FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"migrations_no_truncate\", \"table\": \"schema_migrations\", \"definition\": \"CREATE TRIGGER migrations_no_truncate BEFORE TRUNCATE ON day6_ingestion.schema_migrations FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"profiles_immutable\", \"table\": \"embedding_profiles\", \"definition\": \"CREATE TRIGGER profiles_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.embedding_profiles FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"profiles_no_truncate\", \"table\": \"embedding_profiles\", \"definition\": \"CREATE TRIGGER profiles_no_truncate BEFORE TRUNCATE ON day6_ingestion.embedding_profiles FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}, {\"name\": \"snapshots_complete\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE CONSTRAINT TRIGGER snapshots_complete AFTER INSERT OR UPDATE ON day6_ingestion.strategy_snapshots DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()\"}, {\"name\": \"snapshots_namespace\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE TRIGGER snapshots_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.strategy_snapshots FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()\"}, {\"name\": \"snapshots_no_truncate\", \"table\": \"strategy_snapshots\", \"definition\": \"CREATE TRIGGER snapshots_no_truncate BEFORE TRUNCATE ON day6_ingestion.strategy_snapshots FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()\"}], \"functions\": [\"assert_snapshot_complete\", \"catalog_fingerprint\", \"guard_namespace\", \"namespace_lock_key\", \"reject_mutation\"], \"row_counts\": {\"chunks\": 0, \"embedding_profiles\": 0, \"strategy_snapshots\": 0}, \"catalog_fingerprint\": \"209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55\"}\n08cb19f8d3ec7163304728e3af473001158efdceeb83f7ebb29fbbfb1741cf40\n",
+    "stderr": "",
+    "sqlstate": "00000"
+  },
+  "postcommit_identity": {
+    "user": "day6",
+    "schema": "day6_ingestion",
+    "cluster": "7707847059457269799",
+    "version": "16.16 (Debian 16.16-1.pgdg12+1)",
+    "database": "day6_lab",
+    "encoding": "UTF8",
+    "can_create": true,
+    "version_num": "160016",
+    "vector_version": "0.8.7",
+    "migration_tables": 1
+  },
+  "postcommit_catalog": {
+    "views": [
+      "compatible_snapshots"
+    ],
+    "ledger": [
+      {
+        "name": "0001_day6_ingestion.sql",
+        "version": 1,
+        "checksum": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+        "applied_at": "2026-11-14T07:05:59.656279+00:00",
+        "catalog_sha256": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+      }
+    ],
+    "schema": "day6_ingestion",
+    "tables": [
+      "chunks",
+      "embedding_profiles",
+      "schema_migrations",
+      "strategy_snapshots"
+    ],
+    "indexes": [
+      {
+        "name": "chunks_page_idx",
+        "table": "chunks",
+        "definition": "CREATE INDEX chunks_page_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, document_id, physical_page)"
+      },
+      {
+        "name": "chunks_pkey",
+        "table": "chunks",
+        "definition": "CREATE UNIQUE INDEX chunks_pkey ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, chunk_id)"
+      },
+      {
+        "name": "chunks_section_idx",
+        "table": "chunks",
+        "definition": "CREATE INDEX chunks_section_idx ON day6_ingestion.chunks USING btree (dataset_id, profile_id, strategy, section)"
+      },
+      {
+        "name": "embedding_profiles_pkey",
+        "table": "embedding_profiles",
+        "definition": "CREATE UNIQUE INDEX embedding_profiles_pkey ON day6_ingestion.embedding_profiles USING btree (profile_id)"
+      },
+      {
+        "name": "schema_migrations_name_key",
+        "table": "schema_migrations",
+        "definition": "CREATE UNIQUE INDEX schema_migrations_name_key ON day6_ingestion.schema_migrations USING btree (name)"
+      },
+      {
+        "name": "schema_migrations_pkey",
+        "table": "schema_migrations",
+        "definition": "CREATE UNIQUE INDEX schema_migrations_pkey ON day6_ingestion.schema_migrations USING btree (version)"
+      },
+      {
+        "name": "strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key",
+        "table": "strategy_snapshots",
+        "definition": "CREATE UNIQUE INDEX strategy_snapshots_dataset_id_profile_id_strategy_snapshot__key ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy, snapshot_id, manifest_sha256, corpus_sha256)"
+      },
+      {
+        "name": "strategy_snapshots_pkey",
+        "table": "strategy_snapshots",
+        "definition": "CREATE UNIQUE INDEX strategy_snapshots_pkey ON day6_ingestion.strategy_snapshots USING btree (dataset_id, profile_id, strategy)"
+      }
+    ],
+    "triggers": [
+      {
+        "name": "chunks_complete",
+        "table": "chunks",
+        "definition": "CREATE CONSTRAINT TRIGGER chunks_complete AFTER INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()"
+      },
+      {
+        "name": "chunks_namespace",
+        "table": "chunks",
+        "definition": "CREATE TRIGGER chunks_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.chunks FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()"
+      },
+      {
+        "name": "chunks_no_truncate",
+        "table": "chunks",
+        "definition": "CREATE TRIGGER chunks_no_truncate BEFORE TRUNCATE ON day6_ingestion.chunks FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "migrations_immutable",
+        "table": "schema_migrations",
+        "definition": "CREATE TRIGGER migrations_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.schema_migrations FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "migrations_no_truncate",
+        "table": "schema_migrations",
+        "definition": "CREATE TRIGGER migrations_no_truncate BEFORE TRUNCATE ON day6_ingestion.schema_migrations FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "profiles_immutable",
+        "table": "embedding_profiles",
+        "definition": "CREATE TRIGGER profiles_immutable BEFORE DELETE OR UPDATE ON day6_ingestion.embedding_profiles FOR EACH ROW EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "profiles_no_truncate",
+        "table": "embedding_profiles",
+        "definition": "CREATE TRIGGER profiles_no_truncate BEFORE TRUNCATE ON day6_ingestion.embedding_profiles FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      },
+      {
+        "name": "snapshots_complete",
+        "table": "strategy_snapshots",
+        "definition": "CREATE CONSTRAINT TRIGGER snapshots_complete AFTER INSERT OR UPDATE ON day6_ingestion.strategy_snapshots DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION day6_ingestion.assert_snapshot_complete()"
+      },
+      {
+        "name": "snapshots_namespace",
+        "table": "strategy_snapshots",
+        "definition": "CREATE TRIGGER snapshots_namespace BEFORE INSERT OR DELETE OR UPDATE ON day6_ingestion.strategy_snapshots FOR EACH ROW EXECUTE FUNCTION day6_ingestion.guard_namespace()"
+      },
+      {
+        "name": "snapshots_no_truncate",
+        "table": "strategy_snapshots",
+        "definition": "CREATE TRIGGER snapshots_no_truncate BEFORE TRUNCATE ON day6_ingestion.strategy_snapshots FOR EACH STATEMENT EXECUTE FUNCTION day6_ingestion.reject_mutation()"
+      }
+    ],
+    "functions": [
+      "assert_snapshot_complete",
+      "catalog_fingerprint",
+      "guard_namespace",
+      "namespace_lock_key",
+      "reject_mutation"
+    ],
+    "row_counts": {
+      "chunks": 0,
+      "embedding_profiles": 0,
+      "strategy_snapshots": 0
+    },
+    "catalog_fingerprint": "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+  },
+  "outside_catalog_after": "08cb19f8d3ec7163304728e3af473001158efdceeb83f7ebb29fbbfb1741cf40",
+  "protected_after": {
+    "files": {
+      ".vscode/settings.json": "9f46c0b92be738015393f3d975bebbdcc62838d47b61208e8502a225ac4c105d",
+      "data/rights/postgresql-candidate.md": "ce7409117a395af4bdcd689a248a37dc250bda8cd25b79f738e83b631eb1ac6b",
+      "docs/schema_migration.md": "f1fc549022ab0d8499c720d6c88ca66574ddec5481e9a62d32f83cb851b5c25f",
+      "docs/stage4_embedding_pgvector_plan.md": "f56d7eb48e5fcadbedd91c9c79f6b31ec19d4d999a6809568830bce7c66af61f",
+      "results/corpus_changes.diff": "2bd6a0f7053f9eafac8a4ffa9bd723252ffe62f4a5053e70743b26b781cb78f2",
+      "results/embedding_preflight.md": "155851f838c65e938ad8b7b4300aedeae65f4055ad06060ebe1c5d86435e2981",
+      "results/ingestion_changed_files.txt": "e8d9614969a72999cc8a9550d66ca15222e018caeeb42afccca4fef6434dfe7a",
+      "results/ingestion_chunking_changes.diff": "0af857dbff82e3d867a414136aa2cb74d4e9c166ec8e675ce005150aed3d82f7",
+      "results/ingestion_chunking_pytest.xml": "1aa62eacd92876437290f69bac8d7bdfc69bff0fe7230f7c740f97669a5b6dcc",
+      "results/schema_migration.md": "6650ce698748d8bb2a3988e260cc22931cdcc8c722c132965e5da0e1eecb6d54",
+      "starter/migrations/0001_day6_ingestion.sql": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "starter/migrations/manifest.json": "ffe2a9d942be2aa9ddb57e9ee4cccfb5df378ed1dfe8700fb5ea22977330a577",
+      "starter/scripts/apply_migration_0001.py": "f130b62195edc4db9cfacfa017d1a5b3f1d3b30a2d32903bc2d3684f9a39cd73",
+      "starter/scripts/check_schema_isolated.py": "d07c2a62cbf8ed4f6ed6dee650ba10fc3604c5be5ce528eed140465675364efd",
+      "starter/scripts/plan_schema.py": "e44903f5358c787bd49f66540c60dafbc3c15766e99eb3d8eeb82fc6290d363c",
+      "starter/src/schema.py": "44af24d061e2d1b84f43302964661f7ef610131a8d3a2d975cc80704af779479",
+      "starter/tests/test_schema.py": "0e98275f88a3f1eb0ed8acfce2c52e41a47f2a425dd1184c8d2a98943430814b",
+      ".gitignore": "446ce6d45ed01339daaa32d288ca3eb550d631f8ccecd511afe3a3a066311c14",
+      "BENCHMARK.md": "708d56d1d9100db41632d5b3d3c1501b6a561e6d12adb78d2e865d7e4b25b3c9",
+      "CHECKPOINTS.md": "92fda9f0f73da600b45fb55e8754061b8fbec2dfbe9d2e1775fa1d1e5dfccfc3",
+      "GUIDE.md": "88104bc7ed5279f47222ba6a78dd76f7d891303164be622e162a89ebd5043e51",
+      "README.md": "8748b5aa96b0a95aa6994432747a3bcd033df9f965457d538f5b5f4999a7870e",
+      "REPORT_TEMPLATE.md": "80ae51598089b9b0818ea7dbafb564ae284ffc6ccc688bc9b510ab30348176de",
+      "RUBRIC.md": "b1fc9c3e94e91a2389ad4c864e2627e37e2ee68d7654a54738f852f48b4af5c8",
+      "RULES.md": "d61b7a86d8f8a57308b67ef3dd627a5020a8227f22c86af3cebdfa7c785a815d",
+      "STUDENT.md": "86a1a17a19ffe8f24bf94524e73bd0924d8aaff3891b0f71ba5cd4a0c08cb0cb",
+      "SUBMISSION.md": "6735694437092030b1ded259e19d5bf74d8e04b361ae1beefc798ff77153a99f",
+      "artifacts/experiment_log.csv": "318dd2f3293933c0dd0fafba47dff4a05bba0c9c6b89b167f242d8993fc1d0b6",
+      "assets/benchmark-workflow.svg": "d16f73c05f48fac86ae44dca9b21edf2f6b60a1666f754d6153291aa0e21581b",
+      "assets/ingestion-pipeline.svg": "53e94505c95e7216e2f388a20e5f3abafb329a4226cc8667ed828ae4107dd56f",
+      "data/README.md": "1c06d39c7d84564129b361af371e42f6e4665d941638244850c0dd49192beeb4",
+      "data/format-example.json": "8d8c6f57c88769fe823ea362db2de57977358253fd0fdf4f7bd1d7740c71b3c9",
+      "data/manifest.json": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+      "data/manifest.schema.json": "87ec8457f3e9e543274f92f16397cb687faf0ed6e943ba285fd564c3f8ecf3e3",
+      "data/rights/postgresql-16.16.md": "8ef1dbccbae2cce254bb248fc0798de89b2f55509fec7940fee2dcfa8d858cd3",
+      "docs/README.md": "6af8c38a559239732c11bc1dbef346584abbce8d52c063d4e09a9ef485c413a9",
+      "docs/ingestion_chunking.md": "6603f3fade5f84d76592ae32bc42a6ced712a9929ee0ef32b1559b8f5f76c309",
+      "pytest.ini": "00156c92c2c6ac522dc8ba519e6297a495509559216353d2cc7674e3cc6ae203",
+      "report/individual/MSSV_HoTen.md": "80ae51598089b9b0818ea7dbafb564ae284ffc6ccc688bc9b510ab30348176de",
+      "report/individual/README.md": "b13dca9806e4080d46babfe778a7ee27398821b1cee17abafcea47937e5eb9cd",
+      "results/chunking_sql_review.md": "863c03184b10d92e63a6746f50aa8be237f355e9e78b594468752380f9e33dcd",
+      "results/corpus_tests.md": "c419a79c9a3a0fa0642d68ec1661af0c0ee8c86e27105b25d252f1e4917d4b50",
+      "results/corpus_validation.json": "612eddf4d334754d51303d6bd3c6b87568fa345ce077ca752f9351dc07d983a5",
+      "results/corpus_validation.md": "216c2afd5d8f27684b23a939d19c172ed9a8e7a0fb66aafaf046b5c25d69eb0c",
+      "results/ingestion_chunking.json": "2748559978734d82687e29e203c0280b0be1ece92d2321147814f38a42e904bf",
+      "results/ingestion_chunking.md": "45661e1132ea34a79d9f3f7f902eb99a3b4bb4facc70ce4835ebecf64b05c642",
+      "results/ingestion_chunking_tests.md": "9498fbdee98d1ef1dc8daa25992f73fc98358d83720b3a52a03971a522fa45fa",
+      "results/ingestion_integrity.json": "8dde51e7528be3e70fa58e1ded1a85b1d85fbab6717f4a9e5d7e351d5fb9f204",
+      "starter/.env.example": "9aad995809015aaa7f2c0f3e786ab773eab4be8605562163bfe69a12b5b76e32",
+      "starter/README.md": "650f2041adf220a5830088306fb10b00e175897b2c220daabe85a263de60cf00",
+      "starter/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "starter/docker-compose.yml": "05887438360acb7394ee7ccc026ae03fb828f102947df4371d886f0d49eecb61",
+      "starter/init.sql": "c9d756f25dee9559d1d66824dc61725939464b70dff2033ee44db98d1b8ad922",
+      "starter/requirements.txt": "6ccf10063370e5fc93a13d898b79f0a81ead9b7e5c9a5f9793afc4e2a8af07b1",
+      "starter/results/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "starter/scripts/check_corpus.py": "ffe8b31520157214ce0dca2e2ce14aab31a3d23384fc3339d253eb8ca274963b",
+      "starter/scripts/check_ingestion_chunking.py": "04ea1fcabd50c5df4c3bcf86f345d880e806f3caf7bc041a4b1b9ec792cd432b",
+      "starter/scripts/check_setup.py": "8c43623ec85e2bf16086672f4a4a75af0fc0965b4f6bd279895730bfa3c6f07e",
+      "starter/scripts/extract_corpus.py": "482fc2093de3b7891c85a04feb985b6007a52b04e1b4aeff2174ce0510e5c5cd",
+      "starter/src/__init__.py": "86b6f304b218783f00e27c050a111049f5dc07fd98194c556deb0633d7c8980a",
+      "starter/src/chunking.py": "ec947424add14e5330248b3449ffa150d0ef2dfa0f6a4dafb3696224bbb3b4bb",
+      "starter/src/corpus.py": "4ea1aff1a18aa053efa4704584f290c0f9dc3025fbc7ec2c3d9a05d669e2d77e",
+      "starter/src/embeddings.py": "f363fed2c0cb96788aec194cd48cb8ab58d48d06556f865a4f4e97b352f8e3ab",
+      "starter/src/evaluation.py": "0608998f5d216c5efd79b5582a7a58815e5a14a801534543de3cf81fc95e239d",
+      "starter/src/ingestion.py": "32f49d8e53651e74fb6d48407c476af3610b6943143e44065ee2921cf484500f",
+      "starter/src/models.py": "5380cd16fcd0d4396db5dda3a205c148c148a5fd6e90b90d060dd546e39bb68d",
+      "starter/src/preparation.py": "287cb3480b94fee414f42d136f9f58dc4c39b1cd478efc3b62178398f0fae8dd",
+      "starter/src/run.py": "0e16a8385b300602c53cccd22e506a8fb42031ee38efd548a4650c5b579355bf",
+      "starter/src/store.py": "8a1e736451049d4e5df4ef1d2e2e4aae678597a3e5ac727c5a748683c57b2c33",
+      "starter/tests/test_check_corpus.py": "0b94d32e124e02275b8efe685b37e055c76f303da5ed7d653c736fa4773bb8b7",
+      "starter/tests/test_ingestion_chunking.py": "bfa98b56816257d188fdf4f010d2de440da9ab6790654ea802ccb95b76166f9c"
+    },
+    "local_inventory_sha256": "11ac596c44778f0c686a89795fada935c893b3318d61e6b4c70d21be2e2a35a9",
+    "local_file_count": 26453,
+    "refs": "3996c7566f36d5951c311779e29905132580aee8 refs/heads/main\n",
+    "origin_main": "9a2964e037716e1179d845ec8e5c21675c90a2e0"
+  },
+  "protected_before": {
+    "files": {
+      ".vscode/settings.json": "9f46c0b92be738015393f3d975bebbdcc62838d47b61208e8502a225ac4c105d",
+      "data/rights/postgresql-candidate.md": "ce7409117a395af4bdcd689a248a37dc250bda8cd25b79f738e83b631eb1ac6b",
+      "docs/schema_migration.md": "f1fc549022ab0d8499c720d6c88ca66574ddec5481e9a62d32f83cb851b5c25f",
+      "docs/stage4_embedding_pgvector_plan.md": "f56d7eb48e5fcadbedd91c9c79f6b31ec19d4d999a6809568830bce7c66af61f",
+      "results/corpus_changes.diff": "2bd6a0f7053f9eafac8a4ffa9bd723252ffe62f4a5053e70743b26b781cb78f2",
+      "results/embedding_preflight.md": "155851f838c65e938ad8b7b4300aedeae65f4055ad06060ebe1c5d86435e2981",
+      "results/ingestion_changed_files.txt": "e8d9614969a72999cc8a9550d66ca15222e018caeeb42afccca4fef6434dfe7a",
+      "results/ingestion_chunking_changes.diff": "0af857dbff82e3d867a414136aa2cb74d4e9c166ec8e675ce005150aed3d82f7",
+      "results/ingestion_chunking_pytest.xml": "1aa62eacd92876437290f69bac8d7bdfc69bff0fe7230f7c740f97669a5b6dcc",
+      "results/schema_migration.md": "6650ce698748d8bb2a3988e260cc22931cdcc8c722c132965e5da0e1eecb6d54",
+      "starter/migrations/0001_day6_ingestion.sql": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "starter/migrations/manifest.json": "ffe2a9d942be2aa9ddb57e9ee4cccfb5df378ed1dfe8700fb5ea22977330a577",
+      "starter/scripts/apply_migration_0001.py": "f130b62195edc4db9cfacfa017d1a5b3f1d3b30a2d32903bc2d3684f9a39cd73",
+      "starter/scripts/check_schema_isolated.py": "d07c2a62cbf8ed4f6ed6dee650ba10fc3604c5be5ce528eed140465675364efd",
+      "starter/scripts/plan_schema.py": "e44903f5358c787bd49f66540c60dafbc3c15766e99eb3d8eeb82fc6290d363c",
+      "starter/src/schema.py": "44af24d061e2d1b84f43302964661f7ef610131a8d3a2d975cc80704af779479",
+      "starter/tests/test_schema.py": "0e98275f88a3f1eb0ed8acfce2c52e41a47f2a425dd1184c8d2a98943430814b",
+      ".gitignore": "446ce6d45ed01339daaa32d288ca3eb550d631f8ccecd511afe3a3a066311c14",
+      "BENCHMARK.md": "708d56d1d9100db41632d5b3d3c1501b6a561e6d12adb78d2e865d7e4b25b3c9",
+      "CHECKPOINTS.md": "92fda9f0f73da600b45fb55e8754061b8fbec2dfbe9d2e1775fa1d1e5dfccfc3",
+      "GUIDE.md": "88104bc7ed5279f47222ba6a78dd76f7d891303164be622e162a89ebd5043e51",
+      "README.md": "8748b5aa96b0a95aa6994432747a3bcd033df9f965457d538f5b5f4999a7870e",
+      "REPORT_TEMPLATE.md": "80ae51598089b9b0818ea7dbafb564ae284ffc6ccc688bc9b510ab30348176de",
+      "RUBRIC.md": "b1fc9c3e94e91a2389ad4c864e2627e37e2ee68d7654a54738f852f48b4af5c8",
+      "RULES.md": "d61b7a86d8f8a57308b67ef3dd627a5020a8227f22c86af3cebdfa7c785a815d",
+      "STUDENT.md": "86a1a17a19ffe8f24bf94524e73bd0924d8aaff3891b0f71ba5cd4a0c08cb0cb",
+      "SUBMISSION.md": "6735694437092030b1ded259e19d5bf74d8e04b361ae1beefc798ff77153a99f",
+      "artifacts/experiment_log.csv": "318dd2f3293933c0dd0fafba47dff4a05bba0c9c6b89b167f242d8993fc1d0b6",
+      "assets/benchmark-workflow.svg": "d16f73c05f48fac86ae44dca9b21edf2f6b60a1666f754d6153291aa0e21581b",
+      "assets/ingestion-pipeline.svg": "53e94505c95e7216e2f388a20e5f3abafb329a4226cc8667ed828ae4107dd56f",
+      "data/README.md": "1c06d39c7d84564129b361af371e42f6e4665d941638244850c0dd49192beeb4",
+      "data/format-example.json": "8d8c6f57c88769fe823ea362db2de57977358253fd0fdf4f7bd1d7740c71b3c9",
+      "data/manifest.json": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+      "data/manifest.schema.json": "87ec8457f3e9e543274f92f16397cb687faf0ed6e943ba285fd564c3f8ecf3e3",
+      "data/rights/postgresql-16.16.md": "8ef1dbccbae2cce254bb248fc0798de89b2f55509fec7940fee2dcfa8d858cd3",
+      "docs/README.md": "6af8c38a559239732c11bc1dbef346584abbce8d52c063d4e09a9ef485c413a9",
+      "docs/ingestion_chunking.md": "6603f3fade5f84d76592ae32bc42a6ced712a9929ee0ef32b1559b8f5f76c309",
+      "pytest.ini": "00156c92c2c6ac522dc8ba519e6297a495509559216353d2cc7674e3cc6ae203",
+      "report/individual/MSSV_HoTen.md": "80ae51598089b9b0818ea7dbafb564ae284ffc6ccc688bc9b510ab30348176de",
+      "report/individual/README.md": "b13dca9806e4080d46babfe778a7ee27398821b1cee17abafcea47937e5eb9cd",
+      "results/chunking_sql_review.md": "863c03184b10d92e63a6746f50aa8be237f355e9e78b594468752380f9e33dcd",
+      "results/corpus_tests.md": "c419a79c9a3a0fa0642d68ec1661af0c0ee8c86e27105b25d252f1e4917d4b50",
+      "results/corpus_validation.json": "612eddf4d334754d51303d6bd3c6b87568fa345ce077ca752f9351dc07d983a5",
+      "results/corpus_validation.md": "216c2afd5d8f27684b23a939d19c172ed9a8e7a0fb66aafaf046b5c25d69eb0c",
+      "results/ingestion_chunking.json": "2748559978734d82687e29e203c0280b0be1ece92d2321147814f38a42e904bf",
+      "results/ingestion_chunking.md": "45661e1132ea34a79d9f3f7f902eb99a3b4bb4facc70ce4835ebecf64b05c642",
+      "results/ingestion_chunking_tests.md": "9498fbdee98d1ef1dc8daa25992f73fc98358d83720b3a52a03971a522fa45fa",
+      "results/ingestion_integrity.json": "8dde51e7528be3e70fa58e1ded1a85b1d85fbab6717f4a9e5d7e351d5fb9f204",
+      "starter/.env.example": "9aad995809015aaa7f2c0f3e786ab773eab4be8605562163bfe69a12b5b76e32",
+      "starter/README.md": "650f2041adf220a5830088306fb10b00e175897b2c220daabe85a263de60cf00",
+      "starter/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "starter/docker-compose.yml": "05887438360acb7394ee7ccc026ae03fb828f102947df4371d886f0d49eecb61",
+      "starter/init.sql": "c9d756f25dee9559d1d66824dc61725939464b70dff2033ee44db98d1b8ad922",
+      "starter/requirements.txt": "6ccf10063370e5fc93a13d898b79f0a81ead9b7e5c9a5f9793afc4e2a8af07b1",
+      "starter/results/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "starter/scripts/check_corpus.py": "ffe8b31520157214ce0dca2e2ce14aab31a3d23384fc3339d253eb8ca274963b",
+      "starter/scripts/check_ingestion_chunking.py": "04ea1fcabd50c5df4c3bcf86f345d880e806f3caf7bc041a4b1b9ec792cd432b",
+      "starter/scripts/check_setup.py": "8c43623ec85e2bf16086672f4a4a75af0fc0965b4f6bd279895730bfa3c6f07e",
+      "starter/scripts/extract_corpus.py": "482fc2093de3b7891c85a04feb985b6007a52b04e1b4aeff2174ce0510e5c5cd",
+      "starter/src/__init__.py": "86b6f304b218783f00e27c050a111049f5dc07fd98194c556deb0633d7c8980a",
+      "starter/src/chunking.py": "ec947424add14e5330248b3449ffa150d0ef2dfa0f6a4dafb3696224bbb3b4bb",
+      "starter/src/corpus.py": "4ea1aff1a18aa053efa4704584f290c0f9dc3025fbc7ec2c3d9a05d669e2d77e",
+      "starter/src/embeddings.py": "f363fed2c0cb96788aec194cd48cb8ab58d48d06556f865a4f4e97b352f8e3ab",
+      "starter/src/evaluation.py": "0608998f5d216c5efd79b5582a7a58815e5a14a801534543de3cf81fc95e239d",
+      "starter/src/ingestion.py": "32f49d8e53651e74fb6d48407c476af3610b6943143e44065ee2921cf484500f",
+      "starter/src/models.py": "5380cd16fcd0d4396db5dda3a205c148c148a5fd6e90b90d060dd546e39bb68d",
+      "starter/src/preparation.py": "287cb3480b94fee414f42d136f9f58dc4c39b1cd478efc3b62178398f0fae8dd",
+      "starter/src/run.py": "0e16a8385b300602c53cccd22e506a8fb42031ee38efd548a4650c5b579355bf",
+      "starter/src/store.py": "8a1e736451049d4e5df4ef1d2e2e4aae678597a3e5ac727c5a748683c57b2c33",
+      "starter/tests/test_check_corpus.py": "0b94d32e124e02275b8efe685b37e055c76f303da5ed7d653c736fa4773bb8b7",
+      "starter/tests/test_ingestion_chunking.py": "bfa98b56816257d188fdf4f010d2de440da9ab6790654ea802ccb95b76166f9c"
+    },
+    "local_inventory_sha256": "11ac596c44778f0c686a89795fada935c893b3318d61e6b4c70d21be2e2a35a9",
+    "local_file_count": 26453,
+    "refs": "3996c7566f36d5951c311779e29905132580aee8 refs/heads/main\n",
+    "origin_main": "9a2964e037716e1179d845ec8e5c21675c90a2e0"
+  },
+  "protected_files_unchanged": true,
+  "finished_at": "2026-11-14T07:06:05.981273+00:00",
+  "protected_after_baseline_audit": {
+    "files": {
+      ".vscode/settings.json": "9f46c0b92be738015393f3d975bebbdcc62838d47b61208e8502a225ac4c105d",
+      "data/rights/postgresql-candidate.md": "ce7409117a395af4bdcd689a248a37dc250bda8cd25b79f738e83b631eb1ac6b",
+      "docs/schema_migration.md": "f1fc549022ab0d8499c720d6c88ca66574ddec5481e9a62d32f83cb851b5c25f",
+      "docs/stage4_embedding_pgvector_plan.md": "f56d7eb48e5fcadbedd91c9c79f6b31ec19d4d999a6809568830bce7c66af61f",
+      "results/corpus_changes.diff": "2bd6a0f7053f9eafac8a4ffa9bd723252ffe62f4a5053e70743b26b781cb78f2",
+      "results/embedding_preflight.md": "155851f838c65e938ad8b7b4300aedeae65f4055ad06060ebe1c5d86435e2981",
+      "results/ingestion_changed_files.txt": "e8d9614969a72999cc8a9550d66ca15222e018caeeb42afccca4fef6434dfe7a",
+      "results/ingestion_chunking_changes.diff": "0af857dbff82e3d867a414136aa2cb74d4e9c166ec8e675ce005150aed3d82f7",
+      "results/ingestion_chunking_pytest.xml": "1aa62eacd92876437290f69bac8d7bdfc69bff0fe7230f7c740f97669a5b6dcc",
+      "results/schema_migration.md": "6650ce698748d8bb2a3988e260cc22931cdcc8c722c132965e5da0e1eecb6d54",
+      "starter/migrations/0001_day6_ingestion.sql": "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "starter/migrations/manifest.json": "ffe2a9d942be2aa9ddb57e9ee4cccfb5df378ed1dfe8700fb5ea22977330a577",
+      "starter/scripts/apply_migration_0001.py": "f130b62195edc4db9cfacfa017d1a5b3f1d3b30a2d32903bc2d3684f9a39cd73",
+      "starter/scripts/check_schema_isolated.py": "d07c2a62cbf8ed4f6ed6dee650ba10fc3604c5be5ce528eed140465675364efd",
+      "starter/scripts/plan_schema.py": "e44903f5358c787bd49f66540c60dafbc3c15766e99eb3d8eeb82fc6290d363c",
+      "starter/src/schema.py": "44af24d061e2d1b84f43302964661f7ef610131a8d3a2d975cc80704af779479",
+      "starter/tests/test_schema.py": "0e98275f88a3f1eb0ed8acfce2c52e41a47f2a425dd1184c8d2a98943430814b",
+      ".gitignore": "446ce6d45ed01339daaa32d288ca3eb550d631f8ccecd511afe3a3a066311c14",
+      "BENCHMARK.md": "708d56d1d9100db41632d5b3d3c1501b6a561e6d12adb78d2e865d7e4b25b3c9",
+      "CHECKPOINTS.md": "92fda9f0f73da600b45fb55e8754061b8fbec2dfbe9d2e1775fa1d1e5dfccfc3",
+      "GUIDE.md": "88104bc7ed5279f47222ba6a78dd76f7d891303164be622e162a89ebd5043e51",
+      "README.md": "8748b5aa96b0a95aa6994432747a3bcd033df9f965457d538f5b5f4999a7870e",
+      "REPORT_TEMPLATE.md": "80ae51598089b9b0818ea7dbafb564ae284ffc6ccc688bc9b510ab30348176de",
+      "RUBRIC.md": "b1fc9c3e94e91a2389ad4c864e2627e37e2ee68d7654a54738f852f48b4af5c8",
+      "RULES.md": "d61b7a86d8f8a57308b67ef3dd627a5020a8227f22c86af3cebdfa7c785a815d",
+      "STUDENT.md": "86a1a17a19ffe8f24bf94524e73bd0924d8aaff3891b0f71ba5cd4a0c08cb0cb",
+      "SUBMISSION.md": "6735694437092030b1ded259e19d5bf74d8e04b361ae1beefc798ff77153a99f",
+      "artifacts/experiment_log.csv": "318dd2f3293933c0dd0fafba47dff4a05bba0c9c6b89b167f242d8993fc1d0b6",
+      "assets/benchmark-workflow.svg": "d16f73c05f48fac86ae44dca9b21edf2f6b60a1666f754d6153291aa0e21581b",
+      "assets/ingestion-pipeline.svg": "53e94505c95e7216e2f388a20e5f3abafb329a4226cc8667ed828ae4107dd56f",
+      "data/README.md": "1c06d39c7d84564129b361af371e42f6e4665d941638244850c0dd49192beeb4",
+      "data/format-example.json": "8d8c6f57c88769fe823ea362db2de57977358253fd0fdf4f7bd1d7740c71b3c9",
+      "data/manifest.json": "6ec73dc52b8cb5d83f5b08baeffcb231109cc2bbd95525c3315ae72c1f29db5d",
+      "data/manifest.schema.json": "87ec8457f3e9e543274f92f16397cb687faf0ed6e943ba285fd564c3f8ecf3e3",
+      "data/rights/postgresql-16.16.md": "8ef1dbccbae2cce254bb248fc0798de89b2f55509fec7940fee2dcfa8d858cd3",
+      "docs/README.md": "6af8c38a559239732c11bc1dbef346584abbce8d52c063d4e09a9ef485c413a9",
+      "docs/ingestion_chunking.md": "6603f3fade5f84d76592ae32bc42a6ced712a9929ee0ef32b1559b8f5f76c309",
+      "pytest.ini": "00156c92c2c6ac522dc8ba519e6297a495509559216353d2cc7674e3cc6ae203",
+      "report/individual/MSSV_HoTen.md": "80ae51598089b9b0818ea7dbafb564ae284ffc6ccc688bc9b510ab30348176de",
+      "report/individual/README.md": "b13dca9806e4080d46babfe778a7ee27398821b1cee17abafcea47937e5eb9cd",
+      "results/chunking_sql_review.md": "863c03184b10d92e63a6746f50aa8be237f355e9e78b594468752380f9e33dcd",
+      "results/corpus_tests.md": "c419a79c9a3a0fa0642d68ec1661af0c0ee8c86e27105b25d252f1e4917d4b50",
+      "results/corpus_validation.json": "612eddf4d334754d51303d6bd3c6b87568fa345ce077ca752f9351dc07d983a5",
+      "results/corpus_validation.md": "216c2afd5d8f27684b23a939d19c172ed9a8e7a0fb66aafaf046b5c25d69eb0c",
+      "results/ingestion_chunking.json": "2748559978734d82687e29e203c0280b0be1ece92d2321147814f38a42e904bf",
+      "results/ingestion_chunking.md": "45661e1132ea34a79d9f3f7f902eb99a3b4bb4facc70ce4835ebecf64b05c642",
+      "results/ingestion_chunking_tests.md": "9498fbdee98d1ef1dc8daa25992f73fc98358d83720b3a52a03971a522fa45fa",
+      "results/ingestion_integrity.json": "8dde51e7528be3e70fa58e1ded1a85b1d85fbab6717f4a9e5d7e351d5fb9f204",
+      "starter/.env.example": "9aad995809015aaa7f2c0f3e786ab773eab4be8605562163bfe69a12b5b76e32",
+      "starter/README.md": "650f2041adf220a5830088306fb10b00e175897b2c220daabe85a263de60cf00",
+      "starter/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "starter/docker-compose.yml": "05887438360acb7394ee7ccc026ae03fb828f102947df4371d886f0d49eecb61",
+      "starter/init.sql": "c9d756f25dee9559d1d66824dc61725939464b70dff2033ee44db98d1b8ad922",
+      "starter/requirements.txt": "6ccf10063370e5fc93a13d898b79f0a81ead9b7e5c9a5f9793afc4e2a8af07b1",
+      "starter/results/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "starter/scripts/check_corpus.py": "ffe8b31520157214ce0dca2e2ce14aab31a3d23384fc3339d253eb8ca274963b",
+      "starter/scripts/check_ingestion_chunking.py": "04ea1fcabd50c5df4c3bcf86f345d880e806f3caf7bc041a4b1b9ec792cd432b",
+      "starter/scripts/check_setup.py": "8c43623ec85e2bf16086672f4a4a75af0fc0965b4f6bd279895730bfa3c6f07e",
+      "starter/scripts/extract_corpus.py": "482fc2093de3b7891c85a04feb985b6007a52b04e1b4aeff2174ce0510e5c5cd",
+      "starter/src/__init__.py": "86b6f304b218783f00e27c050a111049f5dc07fd98194c556deb0633d7c8980a",
+      "starter/src/chunking.py": "ec947424add14e5330248b3449ffa150d0ef2dfa0f6a4dafb3696224bbb3b4bb",
+      "starter/src/corpus.py": "4ea1aff1a18aa053efa4704584f290c0f9dc3025fbc7ec2c3d9a05d669e2d77e",
+      "starter/src/embeddings.py": "f363fed2c0cb96788aec194cd48cb8ab58d48d06556f865a4f4e97b352f8e3ab",
+      "starter/src/evaluation.py": "0608998f5d216c5efd79b5582a7a58815e5a14a801534543de3cf81fc95e239d",
+      "starter/src/ingestion.py": "32f49d8e53651e74fb6d48407c476af3610b6943143e44065ee2921cf484500f",
+      "starter/src/models.py": "5380cd16fcd0d4396db5dda3a205c148c148a5fd6e90b90d060dd546e39bb68d",
+      "starter/src/preparation.py": "287cb3480b94fee414f42d136f9f58dc4c39b1cd478efc3b62178398f0fae8dd",
+      "starter/src/run.py": "0e16a8385b300602c53cccd22e506a8fb42031ee38efd548a4650c5b579355bf",
+      "starter/src/store.py": "8a1e736451049d4e5df4ef1d2e2e4aae678597a3e5ac727c5a748683c57b2c33",
+      "starter/tests/test_check_corpus.py": "0b94d32e124e02275b8efe685b37e055c76f303da5ed7d653c736fa4773bb8b7",
+      "starter/tests/test_ingestion_chunking.py": "bfa98b56816257d188fdf4f010d2de440da9ab6790654ea802ccb95b76166f9c"
+    },
+    "local_inventory_sha256": "11ac596c44778f0c686a89795fada935c893b3318d61e6b4c70d21be2e2a35a9",
+    "local_file_count": 26453,
+    "refs": "3996c7566f36d5951c311779e29905132580aee8 refs/heads/main\n",
+    "origin_main": "9a2964e037716e1179d845ec8e5c21675c90a2e0"
+  },
+  "protected_unchanged_after_baseline_audit": true,
+  "database_url_precheck": {
+    "verified_before_write": true,
+    "host": "127.0.0.1",
+    "port": 55433,
+    "database": "day6_lab",
+    "user": "day6",
+    "cluster": "7707847059457269799",
+    "version_num": "160016",
+    "vector_version": "0.8.7",
+    "schema_was_absent": true,
+    "migration_tables_were_empty": true,
+    "credentials_redacted": true
+  },
+  "baseline": {
+    "pages": 40,
+    "source_characters": 103371,
+    "A_chunks": 246,
+    "B_chunks": 264,
+    "C_reuses_B": true,
+    "A_coverage": 103371,
+    "B_coverage": 103371,
+    "saved_ids_text_metadata_match": true,
+    "errors": []
+  },
+  "phase_results": {
+    "precheck": "PASS",
+    "transaction": "PASS",
+    "precommit": "PASS",
+    "postcommit_new_readonly_connection": "PASS",
+    "baseline": "PASS"
+  },
+  "git": {
+    "status": "?? .vscode/settings.json\n?? data/rights/postgresql-candidate.md\n?? docs/schema_migration.md\n?? docs/stage4_embedding_pgvector_plan.md\n?? results/corpus_changes.diff\n?? results/embedding_preflight.md\n?? results/ingestion_changed_files.txt\n?? results/ingestion_chunking_changes.diff\n?? results/ingestion_chunking_pytest.xml\n?? results/schema_apply.json\n?? results/schema_apply.md\n?? results/schema_integration.final.diff\n?? results/schema_integration.json\n?? results/schema_integration.md\n?? results/schema_integration.proposed.diff\n?? results/schema_migration.md\n?? starter/migrations/0001_day6_ingestion.sql\n?? starter/migrations/manifest.json\n?? starter/scripts/apply_migration_0001.py\n?? starter/scripts/check_schema_isolated.py\n?? starter/scripts/plan_schema.py\n?? starter/src/schema.py\n?? starter/tests/test_schema.py\n",
+    "tracked_diff": "",
+    "cached_diff": "",
+    "HEAD": "3996c7566f36d5951c311779e29905132580aee8",
+    "origin_main": "9a2964e037716e1179d845ec8e5c21675c90a2e0"
+  }
+}

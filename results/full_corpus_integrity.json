@@ -1,0 +1,19 @@
+{
+  "existing_files_unchanged": true,
+  "changed_existing": [],
+  "original_local_inventory_unchanged": true,
+  "git_refs_unchanged": true,
+  "new_files": [
+    "results/full_corpus_database_preflight.json",
+    "results/full_corpus_embedding_preflight.json",
+    "starter/scripts/check_full_corpus_preflight.py"
+  ],
+  "local_files_before": 26462,
+  "local_files_after": 26964,
+  "targeted_tests": {
+    "passed": 117,
+    "failed": 0,
+    "seconds": 3.02,
+    "full_pytest_run": false
+  }
+}

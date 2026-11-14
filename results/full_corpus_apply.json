@@ -1,0 +1,142 @@
+{
+  "result": "SUCCESS",
+  "started_at": "2026-11-14T08:19:30.796453+00:00",
+  "transactions": {
+    "A": {
+      "outcome": "COMMITTED",
+      "seconds": 1.083097672999429,
+      "result": {
+        "dataset_id": "day06-postgresql",
+        "profile_id": "528f0792d5fdf66a50c7d42f12de648935d70e2912072e6c6dd2eb6b3f4fd651",
+        "strategy": "A",
+        "snapshot_id": "d06b89acda8d08a5c423bfb5d4cd82662a962481cd7a2f81b2ab324e08b3e860",
+        "expected_count": 246,
+        "replayed": false,
+        "written_rows": 246,
+        "deleted_rows": 0
+      }
+    },
+    "B": {
+      "outcome": "COMMITTED",
+      "seconds": 1.0506606889975956,
+      "result": {
+        "dataset_id": "day06-postgresql",
+        "profile_id": "528f0792d5fdf66a50c7d42f12de648935d70e2912072e6c6dd2eb6b3f4fd651",
+        "strategy": "B",
+        "snapshot_id": "c7d9d92e6695709595d044e5a5a09bb8f91826fb692474c7b1806751015ec1e0",
+        "expected_count": 264,
+        "replayed": false,
+        "written_rows": 264,
+        "deleted_rows": 0
+      }
+    }
+  },
+  "errors": [],
+  "encoded_inputs": 0,
+  "before": {
+    "identity": [
+      "day6_lab",
+      "160016",
+      "on",
+      "7707847059457269799",
+      "0.8.7"
+    ],
+    "migration": [
+      1,
+      "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+      "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+    ],
+    "profile_count": 0,
+    "counts": [],
+    "ledgers": [],
+    "namespaces": {
+      "A": {
+        "verification": "CONFIRMED_NOT_COMMITTED",
+        "rows": 0,
+        "full_rows_vectors_exact": false
+      },
+      "B": {
+        "verification": "CONFIRMED_NOT_COMMITTED",
+        "rows": 0,
+        "full_rows_vectors_exact": false
+      }
+    },
+    "other_active_clients": [],
+    "outside_namespace_rows": 0
+  },
+  "precheck": {
+    "passed": true,
+    "vectors": 510,
+    "pages": 40,
+    "coverage": 103371,
+    "profile_id": "528f0792d5fdf66a50c7d42f12de648935d70e2912072e6c6dd2eb6b3f4fd651",
+    "planned_compatible": true,
+    "other_local_writer_pids": []
+  },
+  "after": {
+    "identity": [
+      "day6_lab",
+      "160016",
+      "on",
+      "7707847059457269799",
+      "0.8.7"
+    ],
+    "migration": [
+      1,
+      "04f891492379e9800dd023d604b61e9bd7a60d40e48a1179dd4d6840633166e6",
+      "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55",
+      "209b3597e6f2a6ff8cf13f4c12f5cfc45f3bb34c07f9ff363204902323a2da55"
+    ],
+    "profile_count": 1,
+    "counts": [
+      [
+        "A",
+        246
+      ],
+      [
+        "B",
+        264
+      ]
+    ],
+    "ledgers": [
+      [
+        "day06-postgresql",
+        "528f0792d5fdf66a50c7d42f12de648935d70e2912072e6c6dd2eb6b3f4fd651",
+        "A",
+        "d06b89acda8d08a5c423bfb5d4cd82662a962481cd7a2f81b2ab324e08b3e860",
+        "complete",
+        246,
+        246,
+        "2026-11-14 08:19:38.099021+00:00"
+      ],
+      [
+        "day06-postgresql",
+        "528f0792d5fdf66a50c7d42f12de648935d70e2912072e6c6dd2eb6b3f4fd651",
+        "B",
+        "c7d9d92e6695709595d044e5a5a09bb8f91826fb692474c7b1806751015ec1e0",
+        "complete",
+        264,
+        264,
+        "2026-11-14 08:19:39.163776+00:00"
+      ]
+    ],
+    "namespaces": {
+      "A": {
+        "verification": "CONFIRMED_COMMITTED",
+        "rows": 246,
+        "full_rows_vectors_exact": true
+      },
+      "B": {
+        "verification": "CONFIRMED_COMMITTED",
+        "rows": 264,
+        "full_rows_vectors_exact": true
+      }
+    },
+    "other_active_clients": [],
+    "outside_namespace_rows": 0
+  },
+  "postapply_compatibility": true,
+  "finished_at": "2026-11-14T08:19:40.412335+00:00",
+  "total_seconds": 11.432438723000814
+}
